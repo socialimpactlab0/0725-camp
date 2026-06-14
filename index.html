@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>暑假親子夏令營｜教孩子學會選好影片</title>
+  <title>免費暑假親子營｜教孩子學會選好影片</title>
   <meta name="description" content="乾淨校園夏日親子夏令營，陪孩子在 AI 與短影音時代，學會選擇正向、有教育意義的好影片。" />
 
   <style>
@@ -34,7 +34,7 @@
       margin: 0;
       font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
       color: var(--text);
-      background: linear-gradient(180deg, #f3faf4 0%, #ffffff 42%, #f8fbf5 100%);
+      background: linear-gradient(180deg, #eaf8ff 0%, #ffffff 38%, #f8fbf5 100%);
       line-height: 1.7;
     }
 
@@ -52,7 +52,7 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(223, 232, 225, 0.9);
     }
@@ -103,23 +103,23 @@
       justify-content: center;
       border: 0;
       border-radius: 999px;
-      padding: 13px 22px;
+      padding: 14px 26px;
       font-weight: 900;
       cursor: pointer;
       transition: 0.2s ease;
-      font-size: 16px;
+      font-size: 17px;
       font-family: inherit;
     }
 
     .btn-primary {
       color: white;
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      box-shadow: 0 12px 28px rgba(47, 125, 92, 0.25);
+      background: linear-gradient(135deg, #f43f75, #d71955);
+      box-shadow: 0 12px 28px rgba(215, 25, 85, 0.25);
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 16px 32px rgba(47, 125, 92, 0.32);
+      box-shadow: 0 16px 32px rgba(215, 25, 85, 0.32);
     }
 
     .btn-ghost {
@@ -128,15 +128,16 @@
     }
 
     .hero {
-      padding: 78px 0 54px;
-      overflow: hidden;
+      padding: 42px 0 50px;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(255, 213, 74, 0.35), transparent 24%),
+        radial-gradient(circle at 88% 12%, rgba(52, 168, 235, 0.22), transparent 28%);
     }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.02fr 0.98fr;
-      gap: 44px;
-      align-items: center;
+    .hero-wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      text-align: center;
     }
 
     .eyebrow {
@@ -153,79 +154,39 @@
       margin-bottom: 18px;
     }
 
-    h1 {
-      margin: 0;
-      font-size: clamp(34px, 5vw, 58px);
-      line-height: 1.14;
-      letter-spacing: -0.04em;
-      color: #183c2d;
+    .hero-image-card {
+      background: white;
+      border-radius: 28px;
+      padding: 12px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(223, 232, 225, 0.95);
     }
 
-    .hero-subtitle {
-      margin: 20px 0 0;
-      color: var(--muted);
-      font-size: 19px;
-      max-width: 680px;
+    .hero-image-link {
+      display: block;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .hero-image-link img {
+      width: 100%;
+      display: block;
+      border-radius: 20px;
     }
 
     .hero-actions {
-      margin-top: 28px;
+      margin-top: 24px;
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 12px;
     }
 
     .hero-note {
-      margin-top: 18px;
+      margin: 14px auto 0;
       color: var(--muted);
-      font-size: 15px;
-    }
-
-    .hero-card {
-      background: var(--white);
-      border-radius: 32px;
-      padding: 16px;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--line);
-      position: relative;
-    }
-
-    .hero-photo {
-      position: relative;
-      min-height: 420px;
-      border-radius: 24px;
-      overflow: hidden;
-      background: #eef4ef;
-    }
-
-    .hero-photo img {
-      width: 100%;
-      height: 100%;
-      min-height: 420px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .hero-photo::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(20,70,45,0.42));
-    }
-
-    .hero-photo-caption {
-      position: absolute;
-      left: 18px;
-      right: 18px;
-      bottom: 18px;
-      z-index: 2;
-      background: rgba(255,255,255,0.92);
-      border: 1px solid rgba(255,255,255,0.8);
-      border-radius: 18px;
-      padding: 14px 16px;
-      color: #204532;
-      font-weight: 900;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+      font-size: 16px;
+      max-width: 760px;
     }
 
     section {
@@ -245,6 +206,14 @@
       color: var(--muted);
       font-size: 18px;
       max-width: 780px;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, #ffffff, #f1faf2);
+      border: 1px solid #dcebdd;
+      border-radius: 32px;
+      padding: 34px;
+      box-shadow: var(--shadow);
     }
 
     .grid-3 {
@@ -271,14 +240,6 @@
     .card p {
       margin: 0;
       color: var(--muted);
-    }
-
-    .highlight {
-      background: linear-gradient(135deg, #ffffff, #f1faf2);
-      border: 1px solid #dcebdd;
-      border-radius: 32px;
-      padding: 34px;
-      box-shadow: var(--shadow);
     }
 
     .info-list {
@@ -511,13 +472,9 @@
         display: none;
       }
 
-      .hero-grid,
-      .form-wrap {
-        grid-template-columns: 1fr;
-      }
-
       .grid-3,
-      .review-grid {
+      .review-grid,
+      .form-wrap {
         grid-template-columns: 1fr;
       }
 
@@ -532,12 +489,17 @@
       }
 
       .hero {
-        padding-top: 48px;
+        padding-top: 28px;
       }
 
-      .hero-photo,
-      .hero-photo img {
-        min-height: 300px;
+      .hero-image-card {
+        padding: 8px;
+        border-radius: 22px;
+      }
+
+      .hero-image-link,
+      .hero-image-link img {
+        border-radius: 16px;
       }
 
       .form-note {
@@ -566,33 +528,23 @@
 
   <main>
     <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <div class="eyebrow">2026 夏日親子活動｜限額 30 組</div>
-          <h1>暑假親子夏令營<br>教孩子學會選好影片</h1>
-          <p class="hero-subtitle">
-            在 AI 與短影音快速影響孩子的時代，我們陪孩子一起學會分辨內容，
-            選擇正向、有教育意義的好影片，也讓家長更了解如何陪伴孩子使用乾淨世界與乾淨樂學。
-          </p>
+      <div class="container hero-wrap">
+        <div class="eyebrow">2026 夏日親子活動｜免費參加｜限額 30 組</div>
 
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#signup">立即報名</a>
-            <a class="btn btn-ghost" href="#info">查看活動資訊</a>
-          </div>
-
-          <p class="hero-note">
-            免費參加，適合國小三、四年級學生與家長共同參與。
-          </p>
+        <div class="hero-image-card">
+          <a class="hero-image-link" href="#signup" aria-label="前往報名表">
+            <img src="images/Hero.png" alt="免費暑假親子營，教孩子學會選好內容">
+          </a>
         </div>
 
-        <div class="hero-card">
-          <div class="hero-photo">
-            <img src="images/review-3.jpg" alt="親子一起參與活動">
-            <div class="hero-photo-caption">
-              親子一起參與，在活動中學會選擇更好的內容
-            </div>
-          </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#signup">立即免費報名</a>
+          <a class="btn btn-ghost" href="#info">查看活動資訊</a>
         </div>
+
+        <p class="hero-note">
+          點擊圖片或按鈕即可前往報名。名額僅 30 組，請確認當天可參加後再送出報名。
+        </p>
       </div>
     </section>
 
@@ -616,28 +568,28 @@
 
         <div class="grid-3">
           <div class="card">
-            <h3>親子互動問答</h3>
+            <h3>學會分辨好影片</h3>
             <p>透過簡單問題與生活情境，引導孩子思考影片內容是否正向、是否值得學習。</p>
           </div>
 
           <div class="card">
-            <h3>乾淨挖寶趣</h3>
-            <p>用闖關與任務方式，讓孩子主動找出有教育意義的好內容。</p>
+            <h3>親子一起闖關互動</h3>
+            <p>用任務與問答方式，讓家長陪孩子一起找出有教育意義的好內容。</p>
           </div>
 
           <div class="card">
-            <h3>乾淨樂學與教師分享</h3>
+            <h3>家長了解乾淨樂學</h3>
             <p>讓家長了解如何陪伴孩子使用乾淨世界與乾淨樂學，建立更安心的學習環境。</p>
+          </div>
+
+          <div class="card">
+            <h3>乾淨挖寶趣</h3>
+            <p>孩子化身小小影片偵探，從任務中培養觀察力與判斷力。</p>
           </div>
 
           <div class="card">
             <h3>愛的一句話</h3>
             <p>讓孩子與家長留下彼此想說的話，為活動增加溫度與親子連結。</p>
-          </div>
-
-          <div class="card">
-            <h3>集點兌獎</h3>
-            <p>完成任務即可集點，讓孩子有參與感，也提高活動趣味性。</p>
           </div>
 
           <div class="card">
@@ -670,18 +622,18 @@
           </div>
 
           <div class="info-item">
+            <div class="info-label">地址</div>
+            <div class="info-value">台南市南區南門路 261 號</div>
+          </div>
+
+          <div class="info-item">
             <div class="info-label">參加對象</div>
             <div class="info-value">國小三、四年級學生及家長</div>
           </div>
 
           <div class="info-item">
-            <div class="info-label">活動名額</div>
-            <div class="info-value">限額 30 組親子家庭</div>
-          </div>
-
-          <div class="info-item">
             <div class="info-label">活動費用</div>
-            <div class="info-value">免費參加</div>
+            <div class="info-value">免費參加，限額 30 組</div>
           </div>
         </div>
       </div>
@@ -723,6 +675,7 @@
           過去我們曾舉辦親子著色畫活動，累積了家長與孩子共同參與的經驗。
           本次活動已升級為「暑假親子夏令營」，主軸不再是著色比賽，
           而是陪孩子在 AI 與短影音時代，學會選擇正向、有教育意義的好影片。
+          我們希望延續過去親子活動的溫度，讓孩子不只參加活動，也帶回一個好的選擇習慣。
         </p>
 
         <div class="review-grid">
@@ -803,7 +756,8 @@
           <div class="small">
             活動日期：2026/7/25（六）<br>
             活動時間：08:30–12:00<br>
-            活動地點：台南勞工育樂中心二樓
+            活動地點：台南勞工育樂中心二樓<br>
+            地址：台南市南區南門路 261 號
           </div>
         </div>
 
@@ -864,7 +818,7 @@
   </main>
 
   <footer>
-    乾淨校園夏日親子夏令營｜暑假親子夏令營｜教孩子學會選好影片
+    乾淨校園夏日親子夏令營｜教孩子學會選好影片
   </footer>
 
   <script>
@@ -910,11 +864,6 @@
 
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
-
-      if (!GAS_WEB_APP_URL || GAS_WEB_APP_URL.includes('請貼上')) {
-        setStatus('尚未設定 GAS 部署網址。', 'err');
-        return;
-      }
 
       const data = Object.fromEntries(new FormData(form).entries());
 
