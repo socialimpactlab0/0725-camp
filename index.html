@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>暑假親子夏令營｜教孩子學會選好影片</title>
+  <meta name="description" content="乾淨校園夏日親子夏令營，陪孩子在 AI 與短影音時代，學會選擇正向、有教育意義的好影片。" />
+
+  <style>
+    :root {
+      --primary: #2f7d5c;
+      --primary-dark: #1f5f45;
+      --accent: #f6b84b;
+      --soft: #f7fbf6;
+      --text: #24302a;
+      --muted: #66736b;
+      --line: #dfe8e1;
+      --white: #ffffff;
+      --danger: #b23b3b;
+      --radius: 22px;
+      --shadow: 0 18px 45px rgba(30, 80, 55, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #f3faf4 0%, #ffffff 42%, #f8fbf5 100%);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(223, 232, 225, 0.9);
+    }
+
+    .nav-inner {
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      color: var(--primary-dark);
+      letter-spacing: 0.04em;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), #77bd75);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-dark);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 22px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: 0.2s ease;
+      font-size: 16px;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      box-shadow: 0 12px 28px rgba(47, 125, 92, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 16px 32px rgba(47, 125, 92, 0.32);
+    }
+
+    .btn-ghost {
+      color: var(--primary-dark);
+      background: #eef8ef;
+    }
+
+    .hero {
+      padding: 78px 0 54px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      color: var(--primary-dark);
+      background: #e9f7ed;
+      border: 1px solid #d6eadb;
+      font-weight: 900;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.14;
+      letter-spacing: -0.04em;
+      color: #183c2d;
+    }
+
+    .hero-subtitle {
+      margin: 20px 0 0;
+      color: var(--muted);
+      font-size: 19px;
+      max-width: 680px;
+    }
+
+    .hero-actions {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-note {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .hero-card {
+      background: var(--white);
+      border-radius: 32px;
+      padding: 16px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      position: relative;
+    }
+
+    .hero-photo {
+      position: relative;
+      min-height: 420px;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #eef4ef;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.05), rgba(20,70,45,0.42));
+    }
+
+    .hero-photo-caption {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      z-index: 2;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(255,255,255,0.8);
+      border-radius: 18px;
+      padding: 14px 16px;
+      color: #204532;
+      font-weight: 900;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+    }
+
+    section {
+      padding: 58px 0;
+    }
+
+    .section-title {
+      margin: 0 0 14px;
+      font-size: clamp(28px, 3vw, 40px);
+      line-height: 1.25;
+      color: #183c2d;
+      letter-spacing: -0.03em;
+    }
+
+    .section-lead {
+      margin: 0;
+      color: var(--muted);
+      font-size: 18px;
+      max-width: 780px;
+    }
+
+    .grid-3 {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 10px 28px rgba(30, 80, 55, 0.07);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 21px;
+      color: #1e4d38;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, #ffffff, #f1faf2);
+      border: 1px solid #dcebdd;
+      border-radius: 32px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .info-list {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .info-item {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+
+    .info-label {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+
+    .info-value {
+      color: #183c2d;
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    .timeline {
+      margin-top: 28px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 18px;
+      align-items: start;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 16px 18px;
+    }
+
+    .time {
+      color: var(--primary-dark);
+      font-weight: 900;
+    }
+
+    .activity {
+      color: #2d4638;
+      font-weight: 900;
+    }
+
+    .review-grid {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .review-media {
+      aspect-ratio: 16 / 10;
+      border-radius: 20px;
+      background: #eef4ef;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(30, 80, 55, 0.07);
+    }
+
+    .review-media img,
+    .review-media iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: 0;
+      object-fit: cover;
+    }
+
+    .faq {
+      margin-top: 28px;
+      display: grid;
+      gap: 12px;
+    }
+
+    details {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 900;
+      color: #1e4d38;
+    }
+
+    details p {
+      margin: 12px 0 0;
+      color: var(--muted);
+    }
+
+    .form-wrap {
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .form-note {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      position: sticky;
+      top: 90px;
+    }
+
+    .form-note h2 {
+      margin: 0 0 14px;
+      font-size: 30px;
+      line-height: 1.25;
+    }
+
+    .form-note p {
+      margin: 0;
+      opacity: 0.92;
+    }
+
+    .form-note .small {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.24);
+      font-size: 15px;
+      opacity: 0.9;
+    }
+
+    .form-box {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      font-weight: 900;
+      color: #244635;
+      font-size: 15px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid #ccd9d0;
+      border-radius: 14px;
+      padding: 13px 14px;
+      font-size: 16px;
+      font-family: inherit;
+      outline: none;
+      background: white;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(47, 125, 92, 0.12);
+    }
+
+    textarea {
+      min-height: 105px;
+      resize: vertical;
+    }
+
+    .required {
+      color: var(--danger);
+    }
+
+    .submit-row {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .status {
+      font-weight: 900;
+    }
+
+    .status.ok {
+      color: var(--primary-dark);
+    }
+
+    .status.err {
+      color: var(--danger);
+    }
+
+    footer {
+      padding: 34px 0;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      background: white;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 880px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .form-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-3,
+      .review-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .info-list,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .hero {
+        padding-top: 48px;
+      }
+
+      .hero-photo,
+      .hero-photo img {
+        min-height: 300px;
+      }
+
+      .form-note {
+        position: static;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#">
+        <span class="brand-mark">淨</span>
+        <span>乾淨校園</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#why">為什麼參加</a>
+        <a href="#info">活動資訊</a>
+        <a href="#review">活動回顧</a>
+        <a href="#signup">立即報名</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">2026 夏日親子活動｜限額 30 組</div>
+          <h1>暑假親子夏令營<br>教孩子學會選好影片</h1>
+          <p class="hero-subtitle">
+            在 AI 與短影音快速影響孩子的時代，我們陪孩子一起學會分辨內容，
+            選擇正向、有教育意義的好影片，也讓家長更了解如何陪伴孩子使用乾淨世界與乾淨樂學。
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#signup">立即報名</a>
+            <a class="btn btn-ghost" href="#info">查看活動資訊</a>
+          </div>
+
+          <p class="hero-note">
+            免費參加，適合國小三、四年級學生與家長共同參與。
+          </p>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-photo">
+            <img src="images/review-3.jpg" alt="親子一起參與活動">
+            <div class="hero-photo-caption">
+              親子一起參與，在活動中學會選擇更好的內容
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="container highlight">
+        <h2 class="section-title">孩子不是不能看影片，而是要學會選好內容</h2>
+        <p class="section-lead">
+          很多孩子每天都接觸影片、AI 與短影音。與其完全禁止，不如陪孩子建立判斷力：
+          什麼內容值得看？什麼內容會影響情緒與價值觀？這場夏令營希望用輕鬆、有趣的方式，
+          讓孩子與家長一起學會更好的選擇。
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2 class="section-title">活動亮點</h2>
+        <p class="section-lead">
+          不是傳統上課，也不是單純比賽，而是讓孩子在互動、任務與分享中自然學習。
+        </p>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>親子互動問答</h3>
+            <p>透過簡單問題與生活情境，引導孩子思考影片內容是否正向、是否值得學習。</p>
+          </div>
+
+          <div class="card">
+            <h3>乾淨挖寶趣</h3>
+            <p>用闖關與任務方式，讓孩子主動找出有教育意義的好內容。</p>
+          </div>
+
+          <div class="card">
+            <h3>乾淨樂學與教師分享</h3>
+            <p>讓家長了解如何陪伴孩子使用乾淨世界與乾淨樂學，建立更安心的學習環境。</p>
+          </div>
+
+          <div class="card">
+            <h3>愛的一句話</h3>
+            <p>讓孩子與家長留下彼此想說的話，為活動增加溫度與親子連結。</p>
+          </div>
+
+          <div class="card">
+            <h3>集點兌獎</h3>
+            <p>完成任務即可集點，讓孩子有參與感，也提高活動趣味性。</p>
+          </div>
+
+          <div class="card">
+            <h3>人人有獎，好禮抽獎</h3>
+            <p>活動不強調競爭，而是鼓勵參與，每位孩子都有收穫。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="info">
+      <div class="container">
+        <h2 class="section-title">活動資訊</h2>
+        <p class="section-lead">名額有限，額滿即止。建議確認時間可以參加後再報名。</p>
+
+        <div class="info-list">
+          <div class="info-item">
+            <div class="info-label">活動日期</div>
+            <div class="info-value">2026/7/25（六）</div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-label">活動時間</div>
+            <div class="info-value">08:30–12:00</div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-label">活動地點</div>
+            <div class="info-value">台南勞工育樂中心二樓</div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-label">參加對象</div>
+            <div class="info-value">國小三、四年級學生及家長</div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-label">活動名額</div>
+            <div class="info-value">限額 30 組親子家庭</div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-label">活動費用</div>
+            <div class="info-value">免費參加</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="schedule">
+      <div class="container">
+        <h2 class="section-title">活動流程</h2>
+        <p class="section-lead">流程保留重點即可，現場會依孩子互動狀況彈性調整。</p>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="time">08:30–09:00</div>
+            <div class="activity">報到與暖身闖關</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">09:00–10:40</div>
+            <div class="activity">親子互動問答＋乾淨挖寶趣</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">10:45–11:30</div>
+            <div class="activity">乾淨樂學與教師分享</div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="time">11:30–12:00</div>
+            <div class="activity">愛的一句話、集點兌獎、抽獎與合照</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="review">
+      <div class="container">
+        <h2 class="section-title">過往親子活動回顧</h2>
+        <p class="section-lead">
+          過去我們曾舉辦親子著色畫活動，累積了家長與孩子共同參與的經驗。
+          本次活動已升級為「暑假親子夏令營」，主軸不再是著色比賽，
+          而是陪孩子在 AI 與短影音時代，學會選擇正向、有教育意義的好影片。
+        </p>
+
+        <div class="review-grid">
+          <div class="review-media">
+            <iframe
+              src="https://www.youtube.com/embed/eAzaLqsKM9s"
+              title="過往親子活動花絮影片"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="review-media">
+            <img src="images/review-1.jpg" alt="孩子專心參與活動">
+          </div>
+
+          <div class="review-media">
+            <img src="images/review-3.jpg" alt="親子一起參與活動">
+          </div>
+
+          <div class="review-media">
+            <img src="images/review-2.jpg" alt="過往親子活動歡樂氣氛">
+          </div>
+        </div>
+
+        <div style="margin-top:22px; text-align:center;">
+          <a
+            href="https://www.ganjingworld.com/s/bzNW8NQKJq"
+            target="_blank"
+            rel="noopener"
+            class="btn btn-ghost">
+            查看完整活動影片
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <h2 class="section-title">常見問題</h2>
+
+        <div class="faq">
+          <details>
+            <summary>這次活動是著色畫比賽嗎？</summary>
+            <p>不是。本次活動已升級為暑假親子夏令營，重點是親子互動、媒體識別、好影片選擇與乾淨樂學體驗。</p>
+          </details>
+
+          <details>
+            <summary>孩子不會畫畫也可以參加嗎？</summary>
+            <p>可以。本次活動不侷限會畫畫的小朋友，主要對象是國小三、四年級學生與家長。</p>
+          </details>
+
+          <details>
+            <summary>家長需要全程陪同嗎？</summary>
+            <p>建議家長全程陪同，因為活動中會有親子互動與家長分享內容。</p>
+          </details>
+
+          <details>
+            <summary>需要費用嗎？</summary>
+            <p>本活動免費參加，名額限 30 組親子家庭，額滿即止。</p>
+          </details>
+
+          <details>
+            <summary>報名後會再通知嗎？</summary>
+            <p>報名成功後，主辦單位會於活動前再以電話或訊息提醒。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="signup">
+      <div class="container form-wrap">
+        <div class="form-note">
+          <h2>立即報名</h2>
+          <p>
+            名額限 30 組親子家庭。請填寫正確聯絡資料，方便活動前通知。
+            若同一手機已報名，系統會提醒避免重複送出。
+          </p>
+          <div class="small">
+            活動日期：2026/7/25（六）<br>
+            活動時間：08:30–12:00<br>
+            活動地點：台南勞工育樂中心二樓
+          </div>
+        </div>
+
+        <form class="form-box" id="signupForm">
+          <div class="form-grid">
+            <div class="field">
+              <label for="parentName">家長姓名 <span class="required">*</span></label>
+              <input id="parentName" name="parentName" required />
+            </div>
+
+            <div class="field">
+              <label for="phone">手機 <span class="required">*</span></label>
+              <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="09xxxxxxxx" required />
+            </div>
+
+            <div class="field">
+              <label for="childName">孩子姓名 <span class="required">*</span></label>
+              <input id="childName" name="childName" required />
+            </div>
+
+            <div class="field">
+              <label for="grade">年級 <span class="required">*</span></label>
+              <select id="grade" name="grade" required>
+                <option value="">請選擇</option>
+                <option value="國小三年級">國小三年級</option>
+                <option value="國小四年級">國小四年級</option>
+                <option value="其他">其他</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="school">學校 <span class="required">*</span></label>
+              <input id="school" name="school" required />
+            </div>
+
+            <div class="field full">
+              <label for="photoConsent">是否同意活動拍照 <span class="required">*</span></label>
+              <select id="photoConsent" name="photoConsent" required>
+                <option value="">請選擇</option>
+                <option value="同意">同意</option>
+                <option value="不同意">不同意</option>
+              </select>
+            </div>
+
+            <div class="field full">
+              <label for="note">備註</label>
+              <textarea id="note" name="note" placeholder="例如：孩子特殊狀況、需注意事項等"></textarea>
+            </div>
+          </div>
+
+          <div class="submit-row">
+            <button class="btn btn-primary" type="submit" id="submitBtn">送出報名</button>
+            <span class="status" id="formStatus"></span>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    乾淨校園夏日親子夏令營｜暑假親子夏令營｜教孩子學會選好影片
+  </footer>
+
+  <script>
+    const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzQ3t-2gBDw4DbXtLt2OEB4kLtCL2yc5tjpCf3jMze7tl1hNodASZzkAYfQHrkXNIl1/exec';
+
+    const form = document.getElementById('signupForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const formStatus = document.getElementById('formStatus');
+
+    function setStatus(message, type) {
+      formStatus.textContent = message;
+      formStatus.className = 'status ' + (type || '');
+    }
+
+    function jsonpRequest(url, params) {
+      return new Promise((resolve, reject) => {
+        const callbackName = 'campCallback_' + Date.now() + '_' + Math.floor(Math.random() * 10000);
+        const script = document.createElement('script');
+
+        params.callback = callbackName;
+
+        const query = new URLSearchParams(params).toString();
+        script.src = url + '?' + query;
+
+        window[callbackName] = function(response) {
+          cleanup();
+          resolve(response);
+        };
+
+        script.onerror = function() {
+          cleanup();
+          reject(new Error('連線失敗，請稍後再試。'));
+        };
+
+        function cleanup() {
+          delete window[callbackName];
+          script.remove();
+        }
+
+        document.body.appendChild(script);
+      });
+    }
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      if (!GAS_WEB_APP_URL || GAS_WEB_APP_URL.includes('請貼上')) {
+        setStatus('尚未設定 GAS 部署網址。', 'err');
+        return;
+      }
+
+      const data = Object.fromEntries(new FormData(form).entries());
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = '送出中...';
+      setStatus('資料送出中，請稍候。', '');
+
+      try {
+        const response = await jsonpRequest(GAS_WEB_APP_URL, {
+          action: 'register',
+          parentName: data.parentName.trim(),
+          phone: data.phone.trim(),
+          childName: data.childName.trim(),
+          grade: data.grade,
+          school: data.school.trim(),
+          photoConsent: data.photoConsent,
+          note: data.note.trim()
+        });
+
+        if (response.ok) {
+          setStatus(response.message || '報名成功！我們已收到您的資料。', 'ok');
+          form.reset();
+        } else {
+          setStatus(response.message || '報名失敗，請稍後再試。', 'err');
+        }
+      } catch (err) {
+        setStatus(err.message || '連線失敗，請稍後再試。', 'err');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = '送出報名';
+      }
+    });
+  </script>
+</body>
+</html>
