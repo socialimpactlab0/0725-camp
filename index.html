@@ -11,8 +11,10 @@
     :root {
       --blue: #2f95d8;
       --blue-dark: #1f6fa8;
+      --blue-soft: #eaf7ff;
       --pink: #e83e73;
       --pink-dark: #c91f58;
+      --yellow-soft: #fff6d7;
       --text: #26323a;
       --muted: #66727a;
       --line: #e6eef3;
@@ -26,9 +28,9 @@
       --space-4: 32px;
       --space-5: 48px;
       --space-6: 64px;
-      --space-7: 96px;
+      --space-7: 88px;
 
-      --fs-hero: clamp(32px, 5vw, 52px);
+      --fs-hero: clamp(34px, 5vw, 58px);
       --fs-h2: clamp(26px, 3vw, 38px);
       --fs-h3: 20px;
       --fs-body: 17px;
@@ -36,9 +38,9 @@
 
       --shadow-sm: 0 4px 16px rgba(31, 111, 168, 0.08);
       --shadow-md: 0 12px 32px rgba(31, 111, 168, 0.12);
-      --shadow-lg: 0 22px 50px rgba(31, 111, 168, 0.16);
+      --shadow-lg: 0 24px 58px rgba(31, 111, 168, 0.18);
       --radius: 20px;
-      --radius-lg: 28px;
+      --radius-lg: 30px;
     }
 
     * {
@@ -55,8 +57,8 @@
       color: var(--text);
       background: linear-gradient(180deg, #eaf8ff 0%, #ffffff 40%, #fffaf5 100%);
       line-height: 1.75;
-      font-weight: 400;
       font-size: var(--fs-body);
+      font-weight: 400;
     }
 
     a {
@@ -65,7 +67,7 @@
     }
 
     .container {
-      width: min(1080px, calc(100% - var(--space-4)));
+      width: min(1120px, calc(100% - var(--space-4)));
       margin: 0 auto;
     }
 
@@ -73,7 +75,7 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
     }
@@ -140,7 +142,7 @@
 
     .btn-ghost {
       color: var(--blue-dark);
-      background: #eaf7ff;
+      background: var(--blue-soft);
     }
 
     .btn-ghost:hover {
@@ -149,18 +151,22 @@
 
     .btn-soft {
       color: #8a5b00;
-      background: #fff6d7;
+      background: var(--yellow-soft);
     }
 
     .hero {
       padding: var(--space-5) 0 var(--space-6);
-      background: radial-gradient(circle at 85% 12%, rgba(47, 149, 216, 0.14), transparent 32%);
+      background:
+        radial-gradient(circle at 18% 15%, rgba(255, 246, 215, 0.9), transparent 28%),
+        radial-gradient(circle at 86% 16%, rgba(47, 149, 216, 0.16), transparent 34%);
+      overflow: hidden;
     }
 
-    .hero-wrap {
-      max-width: 880px;
-      margin: 0 auto;
-      text-align: center;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: var(--space-5);
+      align-items: center;
     }
 
     .eyebrow {
@@ -177,31 +183,35 @@
       box-shadow: var(--shadow-sm);
     }
 
-    .hero-image-card {
-      background: white;
-      border-radius: var(--radius-lg);
-      padding: 12px;
-      box-shadow: var(--shadow-lg);
-      margin-top: var(--space-2);
+    .hero-title {
+      margin: 0 0 var(--space-3);
+      font-size: var(--fs-hero);
+      line-height: 1.16;
+      letter-spacing: -0.04em;
+      color: #18384d;
+      font-weight: 900;
     }
 
-    .hero-image-link {
-      display: block;
-      border-radius: var(--radius);
-      overflow: hidden;
+    .hero-title .highlight {
+      color: var(--blue-dark);
     }
 
-    .hero-image-link img {
-      width: 100%;
-      display: block;
-      border-radius: var(--radius);
+    .hero-subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 20px;
+      max-width: 34em;
+    }
+
+    .hero-subtitle strong {
+      color: #18384d;
+      font-weight: 800;
     }
 
     .hero-actions {
       margin-top: var(--space-4);
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: var(--space-2);
     }
 
@@ -209,7 +219,6 @@
       margin-top: var(--space-3);
       display: flex;
       flex-wrap: wrap;
-      justify-content: center;
       gap: var(--space-1);
     }
 
@@ -224,48 +233,92 @@
       box-shadow: var(--shadow-sm);
     }
 
-    .hero-note {
-      margin: var(--space-3) auto 0;
-      color: var(--muted);
-      font-size: var(--fs-body);
-      max-width: 38em;
-    }
-
-    .hero-info-strip {
-      margin: var(--space-4) auto 0;
-      max-width: 920px;
-      background: #ffffff;
-      border: 1px solid #cfe8f7;
+    .hero-info-card {
+      margin-top: var(--space-4);
+      background: white;
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-md);
+      padding: var(--space-3);
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      overflow: hidden;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-2);
+      max-width: 620px;
     }
 
     .hero-info-item {
-      padding: 16px 12px;
-      border-right: 1px solid var(--line);
-    }
-
-    .hero-info-item:last-child {
-      border-right: 0;
+      background: var(--bg-soft);
+      border-radius: 16px;
+      padding: 14px 16px;
     }
 
     .hero-info-label {
-      font-size: 13px;
       color: var(--muted);
-      margin-bottom: 2px;
+      font-size: var(--fs-small);
+      margin-bottom: 3px;
     }
 
     .hero-info-value {
       color: #18384d;
-      font-weight: 700;
-      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .hero-poster-wrap {
+      position: relative;
+    }
+
+    .hero-poster-wrap::before {
+      content: "";
+      position: absolute;
+      inset: 28px -18px -18px 28px;
+      background: linear-gradient(135deg, rgba(47, 149, 216, 0.18), rgba(232, 62, 115, 0.10));
+      border-radius: 34px;
+      z-index: 0;
+    }
+
+    .hero-poster-card {
+      position: relative;
+      z-index: 1;
+      background: white;
+      border-radius: 34px;
+      padding: 12px;
+      box-shadow: var(--shadow-lg);
+      transform: rotate(1.2deg);
+    }
+
+    .hero-poster-card img {
+      width: 100%;
+      display: block;
+      border-radius: 24px;
+    }
+
+    .hero-note-badge {
+      position: absolute;
+      left: -20px;
+      bottom: 28px;
+      z-index: 2;
+      background: white;
+      border-radius: 20px;
+      padding: 14px 18px;
+      box-shadow: var(--shadow-md);
+      color: #18384d;
+      font-weight: 800;
+      max-width: 230px;
+    }
+
+    .hero-note-badge small {
+      display: block;
+      color: var(--muted);
+      font-weight: 500;
+      margin-top: 2px;
     }
 
     section {
       padding: var(--space-7) 0;
+    }
+
+    .section-center {
+      text-align: center;
     }
 
     .section-title {
@@ -281,16 +334,52 @@
       margin: 0;
       color: var(--muted);
       font-size: var(--fs-body);
-      max-width: 38em;
-    }
-
-    .section-center {
-      text-align: center;
+      max-width: 42em;
     }
 
     .section-center .section-lead {
       margin-left: auto;
       margin-right: auto;
+    }
+
+    .pain-section {
+      background: white;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .pain-box {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: var(--space-5);
+      align-items: center;
+      background: linear-gradient(135deg, #f4fafe, #ffffff);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: var(--space-5);
+    }
+
+    .pain-question {
+      margin: 0;
+      font-size: clamp(28px, 3.8vw, 44px);
+      line-height: 1.2;
+      color: #18384d;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+
+    .pain-list {
+      display: grid;
+      gap: var(--space-2);
+    }
+
+    .pain-item {
+      background: white;
+      border-radius: var(--radius);
+      padding: var(--space-3);
+      box-shadow: var(--shadow-sm);
+      color: #244454;
+      font-weight: 700;
     }
 
     .quick-points {
@@ -302,7 +391,6 @@
 
     .point-card {
       background: white;
-      border: none;
       border-radius: var(--radius);
       padding: var(--space-4);
       box-shadow: var(--shadow-sm);
@@ -320,7 +408,7 @@
       border-radius: 14px;
       display: grid;
       place-items: center;
-      background: #e8f6ff;
+      background: var(--blue-soft);
       color: var(--blue-dark);
       font-weight: 800;
       margin-bottom: var(--space-2);
@@ -331,18 +419,16 @@
       margin: 0 0 var(--space-1);
       font-size: var(--fs-h3);
       color: #18384d;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .point-card p {
       margin: 0;
       color: var(--muted);
-      max-width: 38em;
     }
 
     .fit-box {
       background: linear-gradient(135deg, #ffffff, #fff8e3);
-      border: none;
       border-radius: var(--radius-lg);
       padding: var(--space-5);
       box-shadow: var(--shadow-md);
@@ -357,7 +443,6 @@
 
     .fit-item {
       background: white;
-      border: none;
       border-radius: 16px;
       padding: var(--space-3);
       font-weight: 700;
@@ -382,7 +467,6 @@
 
     .info-item {
       background: var(--bg-soft);
-      border: none;
       border-radius: 16px;
       padding: var(--space-3);
       min-height: 112px;
@@ -399,14 +483,13 @@
 
     .info-value {
       color: #18384d;
-      font-weight: 700;
+      font-weight: 800;
       font-size: var(--fs-h3);
       line-height: 1.4;
     }
 
     .host-box {
       background: white;
-      border: none;
       border-radius: var(--radius-lg);
       padding: var(--space-5);
       box-shadow: var(--shadow-md);
@@ -419,7 +502,6 @@
     .host-left,
     .host-right {
       background: var(--bg-soft);
-      border: none;
       border-radius: var(--radius);
       padding: var(--space-4);
     }
@@ -437,7 +519,7 @@
       font-size: 22px;
       color: #18384d;
       line-height: 1.3;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .host-subtitle {
@@ -453,7 +535,6 @@
 
     .host-item {
       background: white;
-      border: none;
       border-radius: 14px;
       padding: 14px 16px;
       box-shadow: var(--shadow-sm);
@@ -467,14 +548,14 @@
 
     .host-value {
       color: #18384d;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 16px;
     }
 
     .host-value ul {
       margin: 0;
       padding-left: 1.1em;
-      font-weight: 400;
+      font-weight: 500;
     }
 
     .host-actions {
@@ -504,10 +585,9 @@
 
     .gain-item {
       background: white;
-      border: none;
       border-radius: var(--radius);
       padding: var(--space-4) var(--space-3);
-      font-weight: 700;
+      font-weight: 800;
       color: #244454;
       text-align: center;
       box-shadow: var(--shadow-sm);
@@ -525,7 +605,6 @@
       gap: var(--space-3);
       align-items: center;
       background: white;
-      border: none;
       border-radius: var(--radius);
       padding: var(--space-3);
       box-shadow: var(--shadow-sm);
@@ -534,7 +613,7 @@
     .schedule-time {
       font-weight: 800;
       color: var(--blue-dark);
-      background: #e8f6ff;
+      background: var(--blue-soft);
       border-radius: 12px;
       padding: 8px 12px;
       text-align: center;
@@ -542,7 +621,7 @@
 
     .schedule-activity {
       color: #2d4654;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .review-box {
@@ -559,7 +638,7 @@
       overflow: hidden;
       box-shadow: var(--shadow-md);
       margin-top: var(--space-4);
-      background: #eaf7ff;
+      background: var(--blue-soft);
     }
 
     .video-wrap iframe {
@@ -605,7 +684,7 @@
 
     summary {
       cursor: pointer;
-      font-weight: 700;
+      font-weight: 800;
       color: #18384d;
       list-style: none;
       display: flex;
@@ -623,7 +702,6 @@
       color: var(--blue);
       font-size: 22px;
       font-weight: 800;
-      transition: transform 0.2s ease;
     }
 
     details[open] summary::after {
@@ -663,7 +741,7 @@
       color: white;
       font-size: var(--fs-h2);
       margin: 0 0 var(--space-2);
-      font-weight: 800;
+      font-weight: 900;
       line-height: 1.25;
     }
 
@@ -700,7 +778,6 @@
 
     .form-box {
       background: white;
-      border: none;
       border-radius: var(--radius-lg);
       padding: var(--space-5);
       box-shadow: var(--shadow-lg);
@@ -710,7 +787,7 @@
       margin: 0 0 var(--space-3);
       color: #18384d;
       font-size: 24px;
-      font-weight: 800;
+      font-weight: 900;
     }
 
     .form-grid {
@@ -796,7 +873,7 @@
       font-size: 14px;
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 900px) {
       :root {
         --space-7: 56px;
       }
@@ -818,6 +895,23 @@
         max-width: calc(100vw - 36px);
       }
 
+      .hero-grid,
+      .pain-box,
+      .host-box,
+      .form-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-poster-card {
+        transform: none;
+      }
+
+      .hero-note-badge {
+        position: static;
+        margin-top: var(--space-2);
+        max-width: none;
+      }
+
       .quick-points,
       .fit-list,
       .gain-grid,
@@ -825,23 +919,12 @@
         grid-template-columns: 1fr;
       }
 
-      .info-list,
-      .host-box,
-      .form-wrap {
+      .info-list {
         grid-template-columns: 1fr;
       }
 
-      .hero-info-strip {
+      .hero-info-card {
         grid-template-columns: 1fr 1fr;
-      }
-
-      .hero-info-item:nth-child(2) {
-        border-right: 0;
-      }
-
-      .hero-info-item:nth-child(1),
-      .hero-info-item:nth-child(2) {
-        border-bottom: 1px solid var(--line);
       }
 
       .schedule-item {
@@ -849,25 +932,12 @@
         gap: var(--space-1);
       }
 
-      .hero {
-        padding-top: var(--space-4);
-      }
-
-      .hero-image-card {
-        padding: 8px;
-        border-radius: 22px;
-      }
-
-      .hero-image-link,
-      .hero-image-link img {
-        border-radius: 16px;
-      }
-
       .fit-box,
       .info-box,
       .host-box,
       .review-box,
-      .form-box {
+      .form-box,
+      .pain-box {
         padding: var(--space-4);
       }
 
@@ -918,17 +988,31 @@
 
       .mobile-cta .phone {
         color: var(--blue-dark);
-        background: #eaf7ff;
+        background: var(--blue-soft);
         border: 1px solid #cfe8f7;
       }
     }
 
-    @media (min-width: 540px) and (max-width: 860px) {
+    @media (min-width: 540px) and (max-width: 900px) {
       .quick-points,
       .fit-list,
       .gain-grid,
       .gallery {
         grid-template-columns: repeat(2, 1fr);
+      }
+
+      .info-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero-info-card {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
       }
     }
   </style>
@@ -953,47 +1037,81 @@
 
   <main>
     <section class="hero">
-      <div class="container hero-wrap">
-        <div class="eyebrow">2026 夏日親子活動｜免費參加｜限額 30 組</div>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow">2026 夏日親子活動｜免費參加｜限額 30 組</div>
 
-        <div class="hero-image-card">
-          <a class="hero-image-link" href="#signup" aria-label="前往報名表">
+          <h1 class="hero-title">
+            孩子愛看影片，<br>
+            爸媽怎麼安心？
+            <span class="highlight">教孩子學會選好內容。</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            這不是一場單純的活動，而是陪孩子在 AI 與短影音時代，
+            練習分辨 <strong>什麼內容值得看、什麼內容要小心</strong>。
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#signup">立即免費報名</a>
+            <a class="btn btn-ghost" href="#info">查看活動資訊</a>
+          </div>
+
+          <div class="hero-trust">
+            <span>免費參加</span>
+            <span>限額 30 組</span>
+            <span>親子同行</span>
+            <span>人人有獎</span>
+          </div>
+
+          <div class="hero-info-card">
+            <div class="hero-info-item">
+              <div class="hero-info-label">日期</div>
+              <div class="hero-info-value">2026/7/25（六）</div>
+            </div>
+
+            <div class="hero-info-item">
+              <div class="hero-info-label">時間</div>
+              <div class="hero-info-value">08:30–12:00</div>
+            </div>
+
+            <div class="hero-info-item">
+              <div class="hero-info-label">地點</div>
+              <div class="hero-info-value">台南勞工育樂中心二樓</div>
+            </div>
+
+            <div class="hero-info-item">
+              <div class="hero-info-label">對象</div>
+              <div class="hero-info-value">國小三、四年級親子</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-poster-wrap">
+          <a class="hero-poster-card" href="#signup" aria-label="前往報名表">
             <img src="images/Hero.png" alt="免費暑假親子營，教孩子學會選好內容">
           </a>
-        </div>
 
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#signup">立即免費報名</a>
-          <a class="btn btn-ghost" href="#info">查看活動資訊</a>
-        </div>
-
-        <div class="hero-trust">
-          <span>免費參加</span>
-          <span>限額 30 組</span>
-          <span>親子同行</span>
-          <span>人人有獎</span>
-        </div>
-
-        <p class="hero-note">
-          孩子愛看影片，不是禁止就好。這場親子營陪孩子學會選擇好內容。
-        </p>
-
-        <div class="hero-info-strip">
-          <div class="hero-info-item">
-            <div class="hero-info-label">日期</div>
-            <div class="hero-info-value">7/25（六）</div>
+          <div class="hero-note-badge">
+            小小影片偵探出任務
+            <small>用遊戲與問答，學會選好內容</small>
           </div>
-          <div class="hero-info-item">
-            <div class="hero-info-label">時間</div>
-            <div class="hero-info-value">08:30–12:00</div>
-          </div>
-          <div class="hero-info-item">
-            <div class="hero-info-label">地點</div>
-            <div class="hero-info-value">台南勞工育樂中心</div>
-          </div>
-          <div class="hero-info-item">
-            <div class="hero-info-label">名額</div>
-            <div class="hero-info-value">限額 30 組</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pain-section">
+      <div class="container">
+        <div class="pain-box">
+          <h2 class="pain-question">
+            不是禁止孩子看影片，<br>
+            而是教他怎麼選。
+          </h2>
+
+          <div class="pain-list">
+            <div class="pain-item">孩子常看 YouTube、短影音或遊戲影片，家長卻不知道內容是否合適。</div>
+            <div class="pain-item">AI 與演算法推薦越來越多，孩子需要更早建立判斷能力。</div>
+            <div class="pain-item">透過親子一起參與，讓「看影片」變成可以討論、可以學習的事。</div>
           </div>
         </div>
       </div>
@@ -1002,9 +1120,9 @@
     <section id="points">
       <div class="container">
         <div class="section-center">
-          <h2 class="section-title">這場活動在做什麼？</h2>
+          <h2 class="section-title">活動重點</h2>
           <p class="section-lead">
-            用半天時間，讓孩子在遊戲、問答與親子互動中，練習判斷什麼是值得看的好影片。
+            半天時間，讓孩子在遊戲、問答與親子互動中，練習判斷什麼是值得看的好影片。
           </p>
         </div>
 
@@ -1034,6 +1152,7 @@
       <div class="container">
         <div class="fit-box">
           <h2 class="section-title">適合這樣的家庭</h2>
+
           <div class="fit-list">
             <div class="fit-item">孩子常看 YouTube、短影音或遊戲影片</div>
             <div class="fit-item">家長想陪孩子建立更好的觀看習慣</div>
@@ -1076,7 +1195,7 @@
             </div>
 
             <div class="info-item">
-              <div class="info-label">費用</div>
+              <div class="info-label">費用與名額</div>
               <div class="info-value">免費參加，限額 30 組</div>
             </div>
           </div>
