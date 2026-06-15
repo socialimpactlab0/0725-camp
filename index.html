@@ -55,13 +55,13 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(255, 255, 255, 0.94);
+      background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(220, 232, 239, 0.95);
     }
 
     .nav-inner {
-      min-height: 66px;
+      min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -72,29 +72,14 @@
     .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-weight: 900;
-      color: var(--blue-dark);
-      letter-spacing: 0.02em;
       min-width: 0;
     }
 
-    .brand-mark {
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--blue), #78c8f6);
-      display: grid;
-      place-items: center;
-      color: white;
-      font-weight: 900;
-      flex: 0 0 auto;
-    }
-
-    .brand-text {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    .logo-brand img {
+      height: 46px;
+      width: auto;
+      display: block;
+      object-fit: contain;
     }
 
     .nav-links {
@@ -690,8 +675,13 @@
         display: none;
       }
 
-      .brand-text {
-        max-width: calc(100vw - 96px);
+      .nav-inner {
+        min-height: 64px;
+      }
+
+      .logo-brand img {
+        height: 34px;
+        max-width: calc(100vw - 36px);
       }
 
       .quick-points,
@@ -790,9 +780,8 @@
 <body>
   <header class="nav">
     <div class="container nav-inner">
-      <a class="brand" href="#">
-        <span class="brand-mark">淨</span>
-        <span class="brand-text">台灣自媒體應用科技協會</span>
+      <a class="brand logo-brand" href="#">
+        <img src="images/tsamt-logo.jpg" alt="台灣自媒體應用科技協會">
       </a>
 
       <nav class="nav-links">
