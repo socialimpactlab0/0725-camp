@@ -61,11 +61,12 @@
     }
 
     .nav-inner {
-      height: 66px;
+      min-height: 66px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 18px;
+      padding: 8px 0;
     }
 
     .brand {
@@ -74,7 +75,8 @@
       gap: 10px;
       font-weight: 900;
       color: var(--blue-dark);
-      letter-spacing: 0.04em;
+      letter-spacing: 0.02em;
+      min-width: 0;
     }
 
     .brand-mark {
@@ -86,6 +88,13 @@
       place-items: center;
       color: white;
       font-weight: 900;
+      flex: 0 0 auto;
+    }
+
+    .brand-text {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .nav-links {
@@ -94,6 +103,7 @@
       align-items: center;
       font-size: 15px;
       color: var(--muted);
+      white-space: nowrap;
     }
 
     .nav-links a:hover {
@@ -409,6 +419,11 @@
       font-size: 17px;
     }
 
+    .host-value ul {
+      margin: 0;
+      padding-left: 1.1em;
+    }
+
     .host-actions {
       margin-top: 18px;
       display: flex;
@@ -653,6 +668,10 @@
       color: var(--danger);
     }
 
+    .mobile-cta {
+      display: none;
+    }
+
     footer {
       padding: 34px 0;
       color: var(--muted);
@@ -663,8 +682,16 @@
     }
 
     @media (max-width: 880px) {
+      body {
+        padding-bottom: 82px;
+      }
+
       .nav-links {
         display: none;
+      }
+
+      .brand-text {
+        max-width: calc(100vw - 96px);
       }
 
       .quick-points,
@@ -719,6 +746,43 @@
       .form-note {
         position: static;
       }
+
+      .mobile-cta {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 50;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding: 10px 14px 14px;
+        background: rgba(255, 255, 255, 0.96);
+        border-top: 1px solid rgba(220, 232, 239, 0.95);
+        box-shadow: 0 -10px 30px rgba(31, 111, 168, 0.12);
+        backdrop-filter: blur(12px);
+      }
+
+      .mobile-cta a {
+        min-height: 48px;
+        border-radius: 999px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 900;
+        font-size: 16px;
+      }
+
+      .mobile-cta .signup {
+        color: white;
+        background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+      }
+
+      .mobile-cta .phone {
+        color: var(--blue-dark);
+        background: #eaf7ff;
+        border: 1px solid #cfe8f7;
+      }
     }
   </style>
 </head>
@@ -728,13 +792,14 @@
     <div class="container nav-inner">
       <a class="brand" href="#">
         <span class="brand-mark">淨</span>
-        <span>乾淨校園</span>
+        <span class="brand-text">台灣自媒體應用科技協會</span>
       </a>
 
       <nav class="nav-links">
         <a href="#points">活動重點</a>
         <a href="#info">活動資訊</a>
         <a href="#host">地點與主辦</a>
+        <a href="#review">活動回顧</a>
         <a href="#signup">立即報名</a>
       </nav>
     </div>
@@ -888,21 +953,42 @@
                 rel="noopener">
                 開啟導航
               </a>
+              <a class="btn btn-ghost" href="tel:0913837389">
+                電話報名
+              </a>
             </div>
           </div>
 
           <div class="host-right">
-            <h2 class="host-title">主辦單位</h2>
+            <h2 class="host-title">主辦與協力單位</h2>
 
             <div class="host-list">
               <div class="host-item">
                 <div class="host-label">主辦單位</div>
-                <div class="host-value">台灣自媒體應用科技協會</div>
+                <div class="host-value">
+                  <ul>
+                    <li>台灣自媒體應用科技協會</li>
+                    <li>乾淨校園推廣團隊</li>
+                  </ul>
+                </div>
               </div>
 
               <div class="host-item">
-                <div class="host-label">推廣團隊</div>
-                <div class="host-value">乾淨校園推廣團隊</div>
+                <div class="host-label">協辦單位</div>
+                <div class="host-value">
+                  <ul>
+                    <li>國際獅子會300E-1區 第22分區 主席林淑珍</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="host-item">
+                <div class="host-label">協力單位</div>
+                <div class="host-value">
+                  <ul>
+                    <li>明林蕾絲</li>
+                  </ul>
+                </div>
               </div>
             </div>
 
@@ -1130,8 +1216,13 @@
   </main>
 
   <footer>
-    乾淨校園夏日親子夏令營｜教孩子學會選好影片
+    台灣自媒體應用科技協會｜乾淨校園夏日親子夏令營
   </footer>
+
+  <div class="mobile-cta" aria-label="手機快速報名按鈕">
+    <a class="signup" href="#signup">立即報名</a>
+    <a class="phone" href="tel:0913837389">電話報名</a>
+  </div>
 
   <script>
     const GAS_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzQ3t-2gBDw4DbXtLt2OEB4kLtCL2yc5tjpCf3jMze7tl1hNodASZzkAYfQHrkXNIl1/exec';
