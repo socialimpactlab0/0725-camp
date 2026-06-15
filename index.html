@@ -186,6 +186,25 @@
       gap: 12px;
     }
 
+    .hero-trust {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .hero-trust span {
+      background: #ffffff;
+      border: 1px solid #cfe8f7;
+      color: var(--blue-dark);
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-weight: 900;
+      font-size: 15px;
+      box-shadow: 0 8px 20px rgba(31, 111, 168, 0.08);
+    }
+
     .hero-note {
       margin: 14px auto 0;
       color: var(--muted);
@@ -259,6 +278,30 @@
     .point-card p {
       margin: 0;
       color: var(--muted);
+    }
+
+    .fit-box {
+      background: linear-gradient(135deg, #ffffff, #fff6d7);
+      border: 1px solid #f1df9c;
+      border-radius: 30px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .fit-list {
+      margin-top: 22px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .fit-item {
+      background: white;
+      border: 1px solid #f0e3b2;
+      border-radius: 18px;
+      padding: 18px;
+      font-weight: 900;
+      color: #4a3d15;
     }
 
     .info-box {
@@ -541,6 +584,7 @@
       }
 
       .quick-points,
+      .fit-list,
       .review-grid,
       .form-wrap,
       .gain-grid {
@@ -571,7 +615,8 @@
         border-radius: 16px;
       }
 
-      .info-box {
+      .info-box,
+      .fit-box {
         padding: 24px;
         border-radius: 24px;
       }
@@ -616,6 +661,13 @@
           <a class="btn btn-ghost" href="#info">查看活動資訊</a>
         </div>
 
+        <div class="hero-trust">
+          <span>免費參加</span>
+          <span>限額 30 組</span>
+          <span>親子同行</span>
+          <span>人人有獎</span>
+        </div>
+
         <p class="hero-note">
           孩子愛看影片，不是禁止就好。這場親子營陪孩子學會選擇好內容。
         </p>
@@ -632,20 +684,33 @@
         <div class="quick-points">
           <div class="point-card">
             <div class="point-icon">1</div>
-            <h3>學會選好影片</h3>
+            <h3>孩子學會分辨好影片</h3>
             <p>引導孩子思考影片內容是否正向、有幫助，而不是被動一直看。</p>
           </div>
 
           <div class="point-card">
             <div class="point-icon">2</div>
-            <h3>親子一起闖關</h3>
-            <p>透過互動任務，讓家長更了解孩子平常怎麼看影片、怎麼想。</p>
+            <h3>親子一起完成任務</h3>
+            <p>透過互動闖關，讓家長更了解孩子平常怎麼看影片、怎麼想。</p>
           </div>
 
           <div class="point-card">
             <div class="point-icon">3</div>
-            <h3>免費參加有獎</h3>
-            <p>集點兌獎、人人有獎，現場還有好禮抽獎，孩子更有參與感。</p>
+            <h3>老師分享安心學習工具</h3>
+            <p>認識乾淨世界與乾淨樂學，讓孩子在暑假也能接觸更正向的內容。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="fit">
+      <div class="container">
+        <div class="fit-box">
+          <h2 class="section-title">適合這樣的家庭</h2>
+          <div class="fit-list">
+            <div class="fit-item">孩子常看 YouTube、短影音或遊戲影片</div>
+            <div class="fit-item">家長想陪孩子建立更好的觀看習慣</div>
+            <div class="fit-item">希望暑假有一場輕鬆又有意義的親子活動</div>
           </div>
         </div>
       </div>
@@ -741,8 +806,8 @@
       <div class="container">
         <h2 class="section-title">過往親子活動回顧</h2>
         <p class="section-lead">
-          過去我們曾舉辦親子著色畫活動，累積了家長與孩子共同參與的經驗。
-          本次活動已升級為暑假親子夏令營，不再是著色比賽。
+          過去我們曾舉辦親子著色畫活動，累積了孩子安心參與、家長共同陪伴的經驗。
+          這次我們延續親子互動的溫度，升級成更符合現在孩子需要的媒體素養夏令營，不再是著色比賽。
         </p>
 
         <div class="review-grid">
@@ -818,6 +883,7 @@
           <h2>立即報名</h2>
           <p>
             名額限 30 組親子家庭。為維持活動品質，額滿後將關閉報名。
+            報名成功後，主辦單位將於活動前再次提醒。
           </p>
 
           <div class="signup-tags">
