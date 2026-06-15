@@ -11,17 +11,34 @@
     :root {
       --blue: #2f95d8;
       --blue-dark: #1f6fa8;
-      --yellow: #ffd75a;
-      --yellow-soft: #fff6d7;
       --pink: #e83e73;
       --pink-dark: #c91f58;
       --text: #26323a;
       --muted: #66727a;
-      --line: #dce8ef;
+      --line: #e6eef3;
+      --bg-soft: #f4fafe;
       --white: #ffffff;
       --danger: #b23b3b;
-      --shadow: 0 18px 45px rgba(31, 111, 168, 0.13);
-      --radius: 24px;
+
+      --space-1: 8px;
+      --space-2: 16px;
+      --space-3: 24px;
+      --space-4: 32px;
+      --space-5: 48px;
+      --space-6: 64px;
+      --space-7: 96px;
+
+      --fs-hero: clamp(32px, 5vw, 52px);
+      --fs-h2: clamp(26px, 3vw, 38px);
+      --fs-h3: 20px;
+      --fs-body: 17px;
+      --fs-small: 14px;
+
+      --shadow-sm: 0 4px 16px rgba(31, 111, 168, 0.08);
+      --shadow-md: 0 12px 32px rgba(31, 111, 168, 0.12);
+      --shadow-lg: 0 22px 50px rgba(31, 111, 168, 0.16);
+      --radius: 20px;
+      --radius-lg: 28px;
     }
 
     * {
@@ -36,9 +53,10 @@
       margin: 0;
       font-family: "Noto Sans TC", "Microsoft JhengHei", Arial, sans-serif;
       color: var(--text);
-      background: linear-gradient(180deg, #eaf8ff 0%, #ffffff 38%, #fffaf0 100%);
-      line-height: 1.7;
+      background: linear-gradient(180deg, #eaf8ff 0%, #ffffff 40%, #fffaf5 100%);
+      line-height: 1.75;
       font-weight: 400;
+      font-size: var(--fs-body);
     }
 
     a {
@@ -47,7 +65,7 @@
     }
 
     .container {
-      width: min(1120px, calc(100% - 36px));
+      width: min(1080px, calc(100% - var(--space-4)));
       margin: 0 auto;
     }
 
@@ -55,9 +73,9 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(255, 255, 255, 0.96);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(220, 232, 239, 0.95);
+      border-bottom: 1px solid var(--line);
     }
 
     .nav-inner {
@@ -65,8 +83,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
-      padding: 8px 0;
+      gap: var(--space-2);
+      padding: var(--space-1) 0;
     }
 
     .brand {
@@ -76,7 +94,7 @@
     }
 
     .logo-brand img {
-      height: 46px;
+      height: 44px;
       width: auto;
       display: block;
       object-fit: contain;
@@ -84,7 +102,7 @@
 
     .nav-links {
       display: flex;
-      gap: 18px;
+      gap: var(--space-3);
       align-items: center;
       font-size: 15px;
       color: var(--muted);
@@ -101,11 +119,11 @@
       justify-content: center;
       border: 0;
       border-radius: 999px;
-      padding: 14px 26px;
+      padding: 14px 28px;
       font-weight: 800;
       cursor: pointer;
-      transition: 0.2s ease;
-      font-size: 17px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      font-size: var(--fs-body);
       font-family: inherit;
     }
 
@@ -116,8 +134,8 @@
     }
 
     .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 16px 32px rgba(232, 62, 115, 0.32);
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(232, 62, 115, 0.32);
     }
 
     .btn-ghost {
@@ -125,20 +143,22 @@
       background: #eaf7ff;
     }
 
+    .btn-ghost:hover {
+      background: #dcf0fc;
+    }
+
     .btn-soft {
       color: #8a5b00;
-      background: var(--yellow-soft);
-      border: 1px solid #f0df9d;
+      background: #fff6d7;
     }
 
     .hero {
-      padding: 36px 0 46px;
-      background:
-        radial-gradient(circle at 85% 12%, rgba(47, 149, 216, 0.16), transparent 30%);
+      padding: var(--space-5) 0 var(--space-6);
+      background: radial-gradient(circle at 85% 12%, rgba(47, 149, 216, 0.14), transparent 32%);
     }
 
     .hero-wrap {
-      max-width: 920px;
+      max-width: 880px;
       margin: 0 auto;
       text-align: center;
     }
@@ -146,51 +166,51 @@
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      padding: 7px 15px;
+      padding: 7px 16px;
       border-radius: 999px;
       color: var(--blue-dark);
       background: #ffffff;
       border: 1px solid #cfe8f7;
       font-weight: 700;
-      font-size: 14px;
-      margin-bottom: 18px;
-      box-shadow: 0 8px 22px rgba(31, 111, 168, 0.08);
+      font-size: var(--fs-small);
+      margin-bottom: var(--space-3);
+      box-shadow: var(--shadow-sm);
     }
 
     .hero-image-card {
       background: white;
-      border-radius: 28px;
+      border-radius: var(--radius-lg);
       padding: 12px;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(220, 232, 239, 0.95);
+      box-shadow: var(--shadow-lg);
+      margin-top: var(--space-2);
     }
 
     .hero-image-link {
       display: block;
-      border-radius: 20px;
+      border-radius: var(--radius);
       overflow: hidden;
     }
 
     .hero-image-link img {
       width: 100%;
       display: block;
-      border-radius: 20px;
+      border-radius: var(--radius);
     }
 
     .hero-actions {
-      margin-top: 24px;
+      margin-top: var(--space-4);
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 12px;
+      gap: var(--space-2);
     }
 
     .hero-trust {
-      margin-top: 18px;
+      margin-top: var(--space-3);
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 10px;
+      gap: var(--space-1);
     }
 
     .hero-trust span {
@@ -198,317 +218,389 @@
       border: 1px solid #cfe8f7;
       color: var(--blue-dark);
       border-radius: 999px;
-      padding: 8px 14px;
+      padding: 8px 16px;
       font-weight: 700;
       font-size: 15px;
-      box-shadow: 0 8px 20px rgba(31, 111, 168, 0.08);
+      box-shadow: var(--shadow-sm);
     }
 
     .hero-note {
-      margin: 14px auto 0;
+      margin: var(--space-3) auto 0;
       color: var(--muted);
+      font-size: var(--fs-body);
+      max-width: 38em;
+    }
+
+    .hero-info-strip {
+      margin: var(--space-4) auto 0;
+      max-width: 920px;
+      background: #ffffff;
+      border: 1px solid #cfe8f7;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      overflow: hidden;
+    }
+
+    .hero-info-item {
+      padding: 16px 12px;
+      border-right: 1px solid var(--line);
+    }
+
+    .hero-info-item:last-child {
+      border-right: 0;
+    }
+
+    .hero-info-label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 2px;
+    }
+
+    .hero-info-value {
+      color: #18384d;
+      font-weight: 700;
       font-size: 16px;
-      max-width: 760px;
-      font-weight: 400;
     }
 
     section {
-      padding: 64px 0;
+      padding: var(--space-7) 0;
     }
 
     .section-title {
-      margin: 0 0 12px;
-      font-size: clamp(28px, 3vw, 40px);
+      margin: 0 0 var(--space-2);
+      font-size: var(--fs-h2);
       line-height: 1.25;
       color: #18384d;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.02em;
       font-weight: 800;
     }
 
     .section-lead {
       margin: 0;
       color: var(--muted);
-      font-size: 18px;
-      max-width: 800px;
-      font-weight: 400;
+      font-size: var(--fs-body);
+      max-width: 38em;
+    }
+
+    .section-center {
+      text-align: center;
+    }
+
+    .section-center .section-lead {
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .quick-points {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-      margin-top: 26px;
+      gap: var(--space-3);
+      margin-top: var(--space-5);
     }
 
     .point-card {
       background: white;
-      border: 1px solid var(--line);
+      border: none;
       border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: 0 10px 28px rgba(31, 111, 168, 0.07);
+      padding: var(--space-4);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .point-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
     }
 
     .point-icon {
       width: 48px;
       height: 48px;
-      border-radius: 16px;
+      border-radius: 14px;
       display: grid;
       place-items: center;
       background: #e8f6ff;
       color: var(--blue-dark);
       font-weight: 800;
-      margin-bottom: 14px;
+      margin-bottom: var(--space-2);
       font-size: 20px;
     }
 
     .point-card h3 {
-      margin: 0 0 8px;
-      font-size: 21px;
+      margin: 0 0 var(--space-1);
+      font-size: var(--fs-h3);
       color: #18384d;
-      font-weight: 800;
+      font-weight: 700;
     }
 
     .point-card p {
       margin: 0;
       color: var(--muted);
-      font-weight: 400;
+      max-width: 38em;
     }
 
     .fit-box {
-      background: linear-gradient(135deg, #ffffff, #fff6d7);
-      border: 1px solid #f1df9c;
-      border-radius: 30px;
-      padding: 30px;
-      box-shadow: var(--shadow);
+      background: linear-gradient(135deg, #ffffff, #fff8e3);
+      border: none;
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      box-shadow: var(--shadow-md);
     }
 
     .fit-list {
-      margin-top: 22px;
+      margin-top: var(--space-3);
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
+      gap: var(--space-2);
     }
 
     .fit-item {
       background: white;
-      border: 1px solid #f0e3b2;
-      border-radius: 18px;
-      padding: 18px;
+      border: none;
+      border-radius: 16px;
+      padding: var(--space-3);
       font-weight: 700;
       color: #4a3d15;
+      box-shadow: var(--shadow-sm);
     }
 
     .info-box {
       background: linear-gradient(135deg, #f3fbff, #ffffff);
       border: 2px solid #bfe3f7;
-      border-radius: 30px;
-      padding: 34px;
-      box-shadow: 0 22px 50px rgba(31, 111, 168, 0.16);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      box-shadow: var(--shadow-lg);
     }
 
     .info-list {
-      margin-top: 24px;
+      margin-top: var(--space-4);
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-2);
     }
 
     .info-item {
-      background: #f8fcff;
-      border: 1px solid #dcebf4;
-      border-radius: 18px;
-      padding: 16px 18px;
+      background: var(--bg-soft);
+      border: none;
+      border-radius: 16px;
+      padding: var(--space-3);
+      min-height: 112px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .info-label {
       color: var(--muted);
-      font-size: 14px;
+      font-size: var(--fs-small);
       margin-bottom: 4px;
-      font-weight: 400;
     }
 
     .info-value {
       color: #18384d;
       font-weight: 700;
-      font-size: 18px;
+      font-size: var(--fs-h3);
+      line-height: 1.4;
     }
 
     .host-box {
       background: white;
-      border: 1px solid var(--line);
-      border-radius: 30px;
-      padding: 30px;
-      box-shadow: var(--shadow);
+      border: none;
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      box-shadow: var(--shadow-md);
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 22px;
+      gap: var(--space-3);
       align-items: stretch;
     }
 
     .host-left,
     .host-right {
-      background: #f8fcff;
-      border: 1px solid #dcebf4;
-      border-radius: 22px;
-      padding: 22px;
+      background: var(--bg-soft);
+      border: none;
+      border-radius: var(--radius);
+      padding: var(--space-4);
     }
 
     .host-logo {
-      max-width: 360px;
+      max-width: 320px;
       width: 100%;
       height: auto;
       display: block;
-      margin-bottom: 18px;
+      margin-bottom: var(--space-3);
     }
 
     .host-title {
-      margin: 0 0 14px;
-      font-size: 24px;
+      margin: 0 0 var(--space-2);
+      font-size: 22px;
       color: #18384d;
       line-height: 1.3;
-      font-weight: 800;
+      font-weight: 700;
     }
 
     .host-subtitle {
-      margin: 0 0 12px;
+      margin: 0 0 var(--space-2);
       color: var(--muted);
-      font-size: 16px;
-      font-weight: 400;
     }
 
     .host-list {
       display: grid;
-      gap: 14px;
-      margin-top: 18px;
+      gap: var(--space-2);
+      margin-top: var(--space-2);
     }
 
     .host-item {
       background: white;
-      border: 1px solid #dcebf4;
-      border-radius: 16px;
+      border: none;
+      border-radius: 14px;
       padding: 14px 16px;
+      box-shadow: var(--shadow-sm);
     }
 
     .host-label {
       color: var(--muted);
-      font-size: 14px;
+      font-size: var(--fs-small);
       margin-bottom: 4px;
-      font-weight: 400;
     }
 
     .host-value {
       color: #18384d;
       font-weight: 700;
-      font-size: 17px;
+      font-size: 16px;
     }
 
     .host-value ul {
       margin: 0;
       padding-left: 1.1em;
-    }
-
-    .host-actions {
-      margin-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .host-note {
-      margin: 18px 0 0;
-      color: var(--muted);
-      font-size: 16px;
       font-weight: 400;
     }
 
+    .host-actions {
+      margin-top: var(--space-3);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+
+    .host-note {
+      margin: var(--space-3) 0 0;
+      color: var(--muted);
+    }
+
     .gain {
-      background:
-        radial-gradient(circle at 85% 10%, rgba(255, 215, 90, 0.35), transparent 26%),
-        linear-gradient(135deg, #eaf8ff, #ffffff);
-      border-top: 1px solid #e2eef5;
-      border-bottom: 1px solid #e2eef5;
+      background: linear-gradient(135deg, #eaf8ff, #ffffff);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
     }
 
     .gain-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-top: 26px;
+      gap: var(--space-2);
+      margin-top: var(--space-5);
     }
 
     .gain-item {
       background: white;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 18px;
+      border: none;
+      border-radius: var(--radius);
+      padding: var(--space-4) var(--space-3);
       font-weight: 700;
       color: #244454;
-      box-shadow: 0 8px 20px rgba(31, 111, 168, 0.06);
+      text-align: center;
+      box-shadow: var(--shadow-sm);
     }
 
     .schedule-list {
-      margin-top: 24px;
+      margin-top: var(--space-4);
       display: grid;
-      gap: 12px;
+      gap: var(--space-2);
     }
 
     .schedule-item {
       display: grid;
-      grid-template-columns: 150px 1fr;
-      gap: 18px;
-      align-items: start;
+      grid-template-columns: 140px 1fr;
+      gap: var(--space-3);
+      align-items: center;
       background: white;
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      padding: 16px 18px;
+      border: none;
+      border-radius: var(--radius);
+      padding: var(--space-3);
+      box-shadow: var(--shadow-sm);
     }
 
-    .time {
+    .schedule-time {
+      font-weight: 800;
       color: var(--blue-dark);
-      font-weight: 700;
+      background: #e8f6ff;
+      border-radius: 12px;
+      padding: 8px 12px;
+      text-align: center;
     }
 
-    .activity {
+    .schedule-activity {
       color: #2d4654;
       font-weight: 700;
     }
 
-    .review-grid {
-      margin-top: 26px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
+    .review-box {
+      background: white;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: var(--space-5);
     }
 
-    .review-media {
-      aspect-ratio: 16 / 10;
-      border-radius: 20px;
-      background: #eef7fc;
-      border: 1px solid var(--line);
+    .video-wrap {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius);
       overflow: hidden;
-      box-shadow: 0 10px 28px rgba(31, 111, 168, 0.07);
+      box-shadow: var(--shadow-md);
+      margin-top: var(--space-4);
+      background: #eaf7ff;
     }
 
-    .review-media img,
-    .review-media iframe {
+    .video-wrap iframe {
+      position: absolute;
+      inset: 0;
       width: 100%;
       height: 100%;
-      display: block;
       border: 0;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-2);
+      margin-top: var(--space-3);
+    }
+
+    .gallery img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
       object-fit: cover;
+      border-radius: var(--radius);
+      display: block;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .review-action {
+      margin-top: var(--space-4);
+      text-align: center;
     }
 
     .faq {
-      margin-top: 24px;
-      display: grid;
-      gap: 12px;
+      margin-top: var(--space-4);
     }
 
     details {
       background: white;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 16px 18px;
+      border-radius: var(--radius);
+      padding: var(--space-3) var(--space-4);
+      margin-bottom: var(--space-2);
+      box-shadow: var(--shadow-sm);
     }
 
     summary {
@@ -519,7 +611,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 16px;
+      gap: var(--space-2);
     }
 
     summary::-webkit-details-marker {
@@ -531,7 +623,7 @@
       color: var(--blue);
       font-size: 22px;
       font-weight: 800;
-      line-height: 1;
+      transition: transform 0.2s ease;
     }
 
     details[open] summary::after {
@@ -539,77 +631,92 @@
     }
 
     details p {
-      margin: 12px 0 0;
+      margin: var(--space-2) 0 0;
       color: var(--muted);
-      font-weight: 400;
+    }
+
+    .signup-section {
+      background:
+        radial-gradient(circle at 15% 20%, rgba(232, 62, 115, 0.10), transparent 28%),
+        linear-gradient(135deg, #f4fafe, #ffffff);
     }
 
     .form-wrap {
       display: grid;
-      grid-template-columns: 0.86fr 1.14fr;
-      gap: 24px;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: var(--space-4);
       align-items: start;
     }
 
     .form-note {
       background: linear-gradient(135deg, var(--blue), var(--blue-dark));
       color: white;
-      border-radius: 28px;
-      padding: 32px;
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
       box-shadow: 0 24px 55px rgba(31, 111, 168, 0.28);
+      text-align: center;
       position: sticky;
-      top: 88px;
+      top: 96px;
     }
 
     .form-note h2 {
-      margin: 0 0 12px;
-      font-size: 30px;
-      line-height: 1.25;
+      color: white;
+      font-size: var(--fs-h2);
+      margin: 0 0 var(--space-2);
       font-weight: 800;
+      line-height: 1.25;
     }
 
     .form-note p {
-      margin: 0;
-      opacity: 0.94;
-      font-weight: 400;
+      color: rgba(255, 255, 255, 0.9);
+      margin: 0 0 var(--space-3);
     }
 
     .signup-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 18px;
+      gap: var(--space-1);
+      justify-content: center;
+      margin-top: var(--space-3);
     }
 
     .signup-tag {
       background: rgba(255,255,255,0.16);
       border: 1px solid rgba(255,255,255,0.26);
       border-radius: 999px;
-      padding: 6px 10px;
-      font-size: 14px;
+      padding: 6px 12px;
+      font-size: var(--fs-small);
       font-weight: 700;
     }
 
     .form-note .small {
-      margin-top: 16px;
-      padding-top: 16px;
+      margin-top: var(--space-3);
+      padding-top: var(--space-3);
       border-top: 1px solid rgba(255,255,255,0.25);
       font-size: 15px;
       opacity: 0.92;
+      text-align: left;
     }
 
     .form-box {
       background: white;
-      border: 1px solid var(--line);
-      border-radius: 28px;
-      padding: 28px;
-      box-shadow: var(--shadow);
+      border: none;
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .form-box-title {
+      margin: 0 0 var(--space-3);
+      color: #18384d;
+      font-size: 24px;
+      font-weight: 800;
     }
 
     .form-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+      gap: var(--space-2);
     }
 
     .field {
@@ -657,10 +764,10 @@
     }
 
     .submit-row {
-      margin-top: 20px;
+      margin-top: var(--space-3);
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: var(--space-2);
       flex-wrap: wrap;
     }
 
@@ -689,7 +796,11 @@
       font-size: 14px;
     }
 
-    @media (max-width: 880px) {
+    @media (max-width: 860px) {
+      :root {
+        --space-7: 56px;
+      }
+
       body {
         padding-bottom: 82px;
       }
@@ -709,25 +820,37 @@
 
       .quick-points,
       .fit-list,
-      .review-grid,
-      .form-wrap,
       .gain-grid,
-      .host-box {
+      .gallery {
         grid-template-columns: 1fr;
       }
 
       .info-list,
-      .form-grid {
+      .host-box,
+      .form-wrap {
         grid-template-columns: 1fr;
+      }
+
+      .hero-info-strip {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .hero-info-item:nth-child(2) {
+        border-right: 0;
+      }
+
+      .hero-info-item:nth-child(1),
+      .hero-info-item:nth-child(2) {
+        border-bottom: 1px solid var(--line);
       }
 
       .schedule-item {
         grid-template-columns: 1fr;
-        gap: 4px;
+        gap: var(--space-1);
       }
 
       .hero {
-        padding-top: 28px;
+        padding-top: var(--space-4);
       }
 
       .hero-image-card {
@@ -740,24 +863,26 @@
         border-radius: 16px;
       }
 
-      .info-box,
       .fit-box,
-      .host-box {
-        padding: 24px;
-        border-radius: 24px;
+      .info-box,
+      .host-box,
+      .review-box,
+      .form-box {
+        padding: var(--space-4);
       }
 
       .host-left,
       .host-right {
-        padding: 18px;
-      }
-
-      .host-logo {
-        max-width: 100%;
+        padding: var(--space-3);
       }
 
       .form-note {
         position: static;
+        padding: var(--space-4);
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
       }
 
       .mobile-cta {
@@ -795,6 +920,15 @@
         color: var(--blue-dark);
         background: #eaf7ff;
         border: 1px solid #cfe8f7;
+      }
+    }
+
+    @media (min-width: 540px) and (max-width: 860px) {
+      .quick-points,
+      .fit-list,
+      .gain-grid,
+      .gallery {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
   </style>
@@ -843,15 +977,36 @@
         <p class="hero-note">
           孩子愛看影片，不是禁止就好。這場親子營陪孩子學會選擇好內容。
         </p>
+
+        <div class="hero-info-strip">
+          <div class="hero-info-item">
+            <div class="hero-info-label">日期</div>
+            <div class="hero-info-value">7/25（六）</div>
+          </div>
+          <div class="hero-info-item">
+            <div class="hero-info-label">時間</div>
+            <div class="hero-info-value">08:30–12:00</div>
+          </div>
+          <div class="hero-info-item">
+            <div class="hero-info-label">地點</div>
+            <div class="hero-info-value">台南勞工育樂中心</div>
+          </div>
+          <div class="hero-info-item">
+            <div class="hero-info-label">名額</div>
+            <div class="hero-info-value">限額 30 組</div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="points">
       <div class="container">
-        <h2 class="section-title">這場活動在做什麼？</h2>
-        <p class="section-lead">
-          用半天時間，讓孩子在遊戲、問答與親子互動中，練習判斷什麼是值得看的好影片。
-        </p>
+        <div class="section-center">
+          <h2 class="section-title">這場活動在做什麼？</h2>
+          <p class="section-lead">
+            用半天時間，讓孩子在遊戲、問答與親子互動中，練習判斷什麼是值得看的好影片。
+          </p>
+        </div>
 
         <div class="quick-points">
           <div class="point-card">
@@ -1025,10 +1180,12 @@
 
     <section class="gain">
       <div class="container">
-        <h2 class="section-title">孩子會帶走什麼？</h2>
-        <p class="section-lead">
-          不是只來玩一次活動，而是帶回一個好的選擇習慣。
-        </p>
+        <div class="section-center">
+          <h2 class="section-title">孩子會帶走什麼？</h2>
+          <p class="section-lead">
+            不是只來玩一次活動，而是帶回一個好的選擇習慣。
+          </p>
+        </div>
 
         <div class="gain-grid">
           <div class="gain-item">分辨好影片</div>
@@ -1041,28 +1198,30 @@
 
     <section id="schedule">
       <div class="container">
-        <h2 class="section-title">簡版流程</h2>
-        <p class="section-lead">流程簡單保留重點，現場會依孩子互動狀況彈性調整。</p>
+        <div class="section-center">
+          <h2 class="section-title">簡版流程</h2>
+          <p class="section-lead">流程簡單保留重點，現場會依孩子互動狀況彈性調整。</p>
+        </div>
 
         <div class="schedule-list">
           <div class="schedule-item">
-            <div class="time">08:30–09:00</div>
-            <div class="activity">報到與暖身闖關</div>
+            <div class="schedule-time">08:30–09:00</div>
+            <div class="schedule-activity">報到與暖身闖關</div>
           </div>
 
           <div class="schedule-item">
-            <div class="time">09:00–10:40</div>
-            <div class="activity">親子互動問答＋乾淨挖寶趣</div>
+            <div class="schedule-time">09:00–10:40</div>
+            <div class="schedule-activity">親子互動問答＋乾淨挖寶趣</div>
           </div>
 
           <div class="schedule-item">
-            <div class="time">10:45–11:30</div>
-            <div class="activity">乾淨樂學與教師分享</div>
+            <div class="schedule-time">10:45–11:30</div>
+            <div class="schedule-activity">乾淨樂學與教師分享</div>
           </div>
 
           <div class="schedule-item">
-            <div class="time">11:30–12:00</div>
-            <div class="activity">愛的一句話、集點兌獎、抽獎與合照</div>
+            <div class="schedule-time">11:30–12:00</div>
+            <div class="schedule-activity">愛的一句話、集點兌獎、抽獎與合照</div>
           </div>
         </div>
       </div>
@@ -1070,14 +1229,14 @@
 
     <section id="review">
       <div class="container">
-        <h2 class="section-title">過往親子活動回顧</h2>
-        <p class="section-lead">
-          過去我們曾舉辦親子著色畫活動，累積了孩子安心參與、家長共同陪伴的經驗。
-          這次我們延續親子互動的溫度，升級成更符合現在孩子需要的媒體素養夏令營，不再是著色比賽。
-        </p>
+        <div class="review-box">
+          <h2 class="section-title">過往親子活動回顧</h2>
+          <p class="section-lead">
+            過去我們曾舉辦親子著色畫活動，累積了孩子安心參與、家長共同陪伴的經驗。
+            這次我們延續親子互動的溫度，升級成更符合現在孩子需要的媒體素養夏令營，不再是著色比賽。
+          </p>
 
-        <div class="review-grid">
-          <div class="review-media">
+          <div class="video-wrap">
             <iframe
               src="https://www.youtube.com/embed/eAzaLqsKM9s"
               title="過往親子活動花絮影片"
@@ -1086,34 +1245,30 @@
             </iframe>
           </div>
 
-          <div class="review-media">
+          <div class="gallery">
             <img src="images/review-1.jpg" alt="孩子專心參與活動" loading="lazy">
-          </div>
-
-          <div class="review-media">
             <img src="images/review-3.jpg" alt="親子一起參與活動" loading="lazy">
-          </div>
-
-          <div class="review-media">
             <img src="images/review-2.jpg" alt="過往親子活動歡樂氣氛" loading="lazy">
           </div>
-        </div>
 
-        <div style="margin-top:22px; text-align:center;">
-          <a
-            href="https://www.ganjingworld.com/s/bzNW8NQKJq"
-            target="_blank"
-            rel="noopener"
-            class="btn btn-ghost">
-            查看完整活動影片
-          </a>
+          <div class="review-action">
+            <a
+              href="https://www.ganjingworld.com/s/bzNW8NQKJq"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-ghost">
+              查看完整活動影片
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="faq">
       <div class="container">
-        <h2 class="section-title">常見問題</h2>
+        <div class="section-center">
+          <h2 class="section-title">常見問題</h2>
+        </div>
 
         <div class="faq">
           <details>
@@ -1144,13 +1299,12 @@
       </div>
     </section>
 
-    <section id="signup">
+    <section id="signup" class="signup-section">
       <div class="container form-wrap">
         <div class="form-note">
-          <h2>立即報名</h2>
+          <h2>名額僅 30 組<br>額滿即止</h2>
           <p>
-            名額限 30 組親子家庭。為維持活動品質，額滿後將關閉報名。
-            報名成功後，主辦單位將於活動前再次提醒。
+            請確認當天可參加後再送出報名。報名成功後，主辦單位將於活動前再次提醒。
           </p>
 
           <div class="signup-tags">
@@ -1169,6 +1323,8 @@
         </div>
 
         <form class="form-box" id="signupForm">
+          <h2 class="form-box-title">填寫報名資料</h2>
+
           <div class="form-grid">
             <div class="field">
               <label for="parentName">家長姓名 <span class="required">*</span></label>
