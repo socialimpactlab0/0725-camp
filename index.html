@@ -15,9 +15,9 @@
       --orange-dark: #e9570c;
       --yellow: #ffd95a;
       --green: #7ed6a2;
-      --mint: #b7efd1;
-      --sky: #9eddf4;
-      --pink: #ff8aa8;
+      --mint: #dff8e9;
+      --sky: #dff5ff;
+      --blue: #2f95d8;
       --text: #222222;
       --muted: #666666;
       --line: #f0dfc6;
@@ -146,43 +146,43 @@
     .hero {
       position: relative;
       overflow: hidden;
-      background:
-        radial-gradient(circle at 0% 20%, rgba(255, 107, 24, 0.20), transparent 22%),
-        radial-gradient(circle at 100% 20%, rgba(126, 214, 162, 0.28), transparent 25%),
-        linear-gradient(180deg, #fff3dd 0%, #fff9ee 100%);
-      padding: 46px 0 58px;
+      min-height: 620px;
+      background: #fff6e8;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #f2e6d2;
     }
 
-    .hero::before,
-    .hero::after {
-      content: "";
+    .hero-bg-img {
       position: absolute;
-      width: 170px;
-      height: 170px;
-      border-radius: 50%;
-      opacity: 0.9;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center right;
       z-index: 0;
     }
 
-    .hero::before {
-      left: -70px;
-      top: 110px;
-      background: linear-gradient(180deg, #ff8a5c 0 50%, #7ed6a2 50% 100%);
-    }
-
     .hero::after {
-      right: -70px;
-      top: 120px;
-      background: linear-gradient(180deg, #7ed6a2 0 50%, #ffd95a 50% 100%);
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 247, 232, 0.98) 0%,
+        rgba(255, 247, 232, 0.88) 34%,
+        rgba(255, 247, 232, 0.28) 63%,
+        rgba(255, 247, 232, 0.02) 100%
+      );
+      z-index: 1;
+      pointer-events: none;
     }
 
-    .hero-grid {
+    .hero-content {
       position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: 1fr 0.92fr;
-      gap: 42px;
-      align-items: center;
+      z-index: 2;
+      max-width: 620px;
+      padding: 74px 0;
     }
 
     .eyebrow {
@@ -210,21 +210,20 @@
 
     .hero-title {
       margin: 0;
-      font-size: clamp(42px, 6vw, 68px);
+      font-size: clamp(42px, 6vw, 72px);
       line-height: 1.12;
-      letter-spacing: -0.04em;
+      letter-spacing: -0.05em;
       font-weight: 900;
       color: #111;
     }
 
-    .hero-title .line2 {
-      display: block;
-      margin-top: 8px;
+    .hero-title .orange {
+      color: var(--orange);
     }
 
     .hero-sub {
       margin: 22px 0 0;
-      max-width: 580px;
+      max-width: 600px;
       color: #444;
       font-size: 20px;
       font-weight: 600;
@@ -259,44 +258,6 @@
       color: #754200;
       box-shadow: var(--shadow-soft);
       font-size: 15px;
-    }
-
-    .poster-card {
-      position: relative;
-      background: white;
-      padding: 12px;
-      border-radius: 34px;
-      box-shadow: var(--shadow);
-      transform: rotate(1deg);
-      border: 1px solid #f1dfc4;
-    }
-
-    .poster-card img {
-      width: 100%;
-      display: block;
-      border-radius: 24px;
-    }
-
-    .poster-badge {
-      position: absolute;
-      left: -22px;
-      bottom: 24px;
-      background: white;
-      border: 1px solid #f1dfc4;
-      border-radius: 22px;
-      padding: 14px 18px;
-      box-shadow: var(--shadow-soft);
-      font-weight: 900;
-      color: #222;
-      max-width: 230px;
-    }
-
-    .poster-badge small {
-      display: block;
-      color: var(--muted);
-      font-weight: 600;
-      margin-top: 2px;
-      line-height: 1.4;
     }
 
     section {
@@ -342,7 +303,7 @@
     }
 
     .benefit-card {
-      min-height: 265px;
+      min-height: 275px;
       border-radius: 28px;
       padding: 30px;
       box-shadow: var(--shadow-soft);
@@ -938,32 +899,48 @@
       }
 
       .hero {
-        padding-top: 34px;
+        min-height: auto;
+        align-items: flex-start;
+        padding: 0;
+        background: var(--cream);
       }
 
-      .hero-grid,
-      .info-box,
-      .host-box,
-      .form-wrap {
-        grid-template-columns: 1fr;
+      .hero-bg-img {
+        position: relative;
+        display: block;
+        height: auto;
+        object-fit: contain;
+        object-position: center;
+        margin-top: 0;
+      }
+
+      .hero::after {
+        display: none;
+      }
+
+      .hero-content {
+        padding: 28px 0 36px;
       }
 
       .hero-title {
         font-size: 42px;
       }
 
-      .poster-card {
-        transform: none;
+      .hero-sub {
+        font-size: 18px;
       }
 
-      .poster-badge {
-        position: static;
-        margin-top: 12px;
-        max-width: none;
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .info-box,
+      .host-box,
+      .form-wrap {
+        grid-template-columns: 1fr;
       }
 
       .benefit-grid,
-      .fit-list,
       .gallery {
         grid-template-columns: 1fr;
       }
@@ -1075,6 +1052,7 @@
         <a href="#info">活動資訊</a>
         <a href="#schedule">活動流程</a>
         <a href="#review">活動回顧</a>
+        <a href="#host">主辦團隊</a>
         <a href="#signup" class="nav-cta">立即報名</a>
       </nav>
     </div>
@@ -1082,16 +1060,18 @@
 
   <main>
     <section class="hero">
-      <div class="container hero-grid">
-        <div>
+      <img class="hero-bg-img" src="images/Hero.png" alt="孩子一起看平板，學習選擇好內容的暑假親子營主視覺">
+
+      <div class="container">
+        <div class="hero-content">
           <div class="eyebrow">
             <span class="eyebrow-dot"></span>
             免費暑假親子營｜限額 30 組
           </div>
 
           <h1 class="hero-title">
-            孩子愛看影片，
-            <span class="line2">爸媽怎麼安心？</span>
+            孩子愛看影片，<br>
+            爸媽<span class="orange">怎麼安心？</span>
           </h1>
 
           <p class="hero-sub">
@@ -1110,16 +1090,6 @@
             <span>人人有獎</span>
             <span>額滿即止</span>
           </div>
-        </div>
-
-        <div>
-          <a class="poster-card" href="#signup" aria-label="前往報名表">
-            <img src="images/Hero.png" alt="免費暑假親子營，教孩子學會選好內容">
-            <div class="poster-badge">
-              小小影片偵探出任務
-              <small>用遊戲、問答與親子互動，學會選好內容。</small>
-            </div>
-          </a>
         </div>
       </div>
     </section>
