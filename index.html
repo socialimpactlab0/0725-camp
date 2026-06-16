@@ -143,7 +143,6 @@
       border: 1px solid #a9dfbd;
     }
 
-    /* 電腦版 Hero：調整後 */
     .hero {
       position: relative;
       overflow: hidden;
@@ -924,7 +923,7 @@
         position: relative;
         z-index: 2;
         max-width: none;
-        padding: 26px 0 16px;
+        padding: 34px 0 10px;
       }
 
       .hero-bg-img {
@@ -938,6 +937,11 @@
         object-fit: cover;
         object-position: center right;
         z-index: 0;
+        margin-top: -8px;
+      }
+
+      .eyebrow {
+        margin-bottom: 16px;
       }
 
       .hero-title {
@@ -961,6 +965,13 @@
 
       .hero-tags {
         margin-top: 18px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .hero-tags span {
+        text-align: center;
       }
 
       #benefits {
