@@ -143,10 +143,13 @@
       border: 1px solid #a9dfbd;
     }
 
+    /* 電腦版 Hero：調整後 */
     .hero {
       position: relative;
       overflow: hidden;
-      min-height: 620px;
+      height: calc(100vh - 66px);
+      min-height: 520px;
+      max-height: 620px;
       background: #fff6e8;
       display: flex;
       align-items: center;
@@ -159,7 +162,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center right;
+      object-position: 62% center;
       z-index: 0;
     }
 
@@ -171,7 +174,7 @@
         90deg,
         rgba(255, 247, 232, 0.98) 0%,
         rgba(255, 247, 232, 0.90) 36%,
-        rgba(255, 247, 232, 0.32) 64%,
+        rgba(255, 247, 232, 0.30) 64%,
         rgba(255, 247, 232, 0.02) 100%
       );
       z-index: 1;
@@ -182,7 +185,7 @@
       position: relative;
       z-index: 2;
       max-width: 620px;
-      padding: 74px 0;
+      padding: 58px 0;
     }
 
     .eyebrow {
@@ -901,7 +904,9 @@
       .hero {
         display: flex;
         flex-direction: column;
+        height: auto;
         min-height: auto;
+        max-height: none;
         padding: 0;
         background: var(--cream);
         align-items: stretch;
@@ -919,7 +924,7 @@
         position: relative;
         z-index: 2;
         max-width: none;
-        padding: 30px 0 26px;
+        padding: 26px 0 16px;
       }
 
       .hero-bg-img {
@@ -929,19 +934,20 @@
         display: block;
         width: 100%;
         height: auto;
-        aspect-ratio: 16 / 9;
+        aspect-ratio: 16 / 8.5;
         object-fit: cover;
         object-position: center right;
         z-index: 0;
       }
 
       .hero-title {
-        font-size: 40px;
+        font-size: 36px;
         line-height: 1.18;
       }
 
       .hero-sub {
-        font-size: 18px;
+        font-size: 17px;
+        line-height: 1.75;
         margin-top: 16px;
       }
 
@@ -955,6 +961,10 @@
 
       .hero-tags {
         margin-top: 18px;
+      }
+
+      #benefits {
+        padding-top: 54px;
       }
 
       .info-box,
