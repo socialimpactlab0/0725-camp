@@ -84,6 +84,20 @@
       display: block;
     }
 
+    .brand-hint {
+      display: inline-flex;
+      align-items: center;
+      margin-left: 10px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: #fff0d8;
+      border: 1px solid #f2d2a3;
+      color: #8a4b00;
+      font-size: 13px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
     .nav-links {
       display: flex;
       gap: 22px;
@@ -642,6 +656,30 @@
       padding-left: 20px;
     }
 
+    .host-link-card {
+      display: block;
+      background: #eefaf2;
+      border-color: #a9dfbd;
+      transition: 0.2s ease;
+    }
+
+    .host-link-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .host-link-card p {
+      margin: 6px 0 0;
+      color: #4d6b56;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .host-link-arrow {
+      color: var(--orange-dark);
+      margin-left: 4px;
+    }
+
     .faq {
       margin-top: 26px;
       display: grid;
@@ -901,7 +939,13 @@
 
       .brand img {
         height: 34px;
-        max-width: calc(100vw - 38px);
+        max-width: calc(100vw - 126px);
+      }
+
+      .brand-hint {
+        margin-left: 8px;
+        padding: 4px 8px;
+        font-size: 12px;
       }
 
       .hero {
@@ -1134,8 +1178,9 @@
 <body>
   <header class="nav">
     <div class="container nav-inner">
-      <a class="brand" href="https://taiwantsamt.com/" target="_blank" rel="noopener">
+      <a class="brand" href="https://taiwantsamt.com/" target="_blank" rel="noopener" aria-label="前往台灣自媒體應用科技協會官網">
         <img src="images/tsamt-logo.jpg" alt="台灣自媒體應用科技協會">
+        <span class="brand-hint">主辦單位官網</span>
       </a>
 
       <nav class="nav-links">
@@ -1144,6 +1189,7 @@
         <a href="#schedule">活動流程</a>
         <a href="#review">活動回顧</a>
         <a href="#host">主辦團隊</a>
+        <a href="https://taiwantsamt.com/" target="_blank" rel="noopener">協會官網</a>
         <a href="#signup" class="nav-cta">立即報名</a>
       </nav>
     </div>
@@ -1419,6 +1465,16 @@
                 </ul>
               </div>
 
+              <a
+                class="host-card host-link-card"
+                href="https://taiwantsamt.com/"
+                target="_blank"
+                rel="noopener">
+                <small>主辦單位官網</small>
+                <strong>了解協會背景與推廣理念<span class="host-link-arrow">↗</span></strong>
+                <p>想更了解主辦單位，可點這裡查看協會網站。</p>
+              </a>
+
               <div class="host-card">
                 <small>協辦單位</small>
                 <ul>
@@ -1445,7 +1501,7 @@
                 href="https://taiwantsamt.com/"
                 target="_blank"
                 rel="noopener">
-                了解台灣自媒體應用科技協會
+                了解主辦單位｜協會官網
               </a>
             </div>
           </div>
