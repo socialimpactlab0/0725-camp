@@ -905,9 +905,9 @@
       }
 
       .hero {
-        height: auto;
-        min-height: 0;
-        max-height: none;
+        height: calc(100svh - 66px);
+        min-height: 640px;
+        max-height: 760px;
         display: flex;
         align-items: flex-end;
         background: var(--cream);
@@ -939,7 +939,7 @@
         position: relative;
         z-index: 2;
         max-width: none;
-        padding: 360px 0 34px;
+        padding: 0 0 118px;
       }
 
       .hero-picture {
@@ -992,7 +992,7 @@
       }
 
       #benefits {
-        padding-top: 42px;
+        padding-top: 54px;
       }
 
       .info-box,
@@ -1096,6 +1096,36 @@
       .benefit-grid,
       .gallery {
         grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+
+    /* 2026-06 mobile hero gap fix: reduce blank space under CTA */
+    @media (max-width: 900px) {
+      .hero {
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+        display: flex !important;
+        align-items: flex-end !important;
+        padding: 0 !important;
+      }
+
+      .hero-content {
+        padding: 330px 0 6px !important;
+      }
+
+      .hero-actions {
+        margin-top: 14px !important;
+        margin-bottom: 0 !important;
+      }
+
+      .hero-actions .btn {
+        margin-bottom: 0 !important;
+      }
+
+      #benefits {
+        padding-top: 22px !important;
       }
     }
   </style>
