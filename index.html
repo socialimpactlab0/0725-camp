@@ -156,18 +156,18 @@
     }
 
     .hero-picture {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
 
-.hero-bg-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 62% center;
-  display: block;
-}
+    .hero-bg-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 62% center;
+      display: block;
+    }
 
     .hero::after {
       content: "";
@@ -905,80 +905,89 @@
       }
 
       .hero {
+        height: calc(100svh - 66px);
+        min-height: 640px;
+        max-height: 760px;
         display: flex;
-        flex-direction: column;
-        height: auto;
-        min-height: auto;
-        max-height: none;
-        padding: 0;
+        align-items: flex-end;
         background: var(--cream);
-        align-items: stretch;
-      }
-
-      .hero::after {
-        display: none;
-      }
-
-      .hero .container {
-        order: 1;
-      }
-
-      .hero-content {
-        position: relative;
-        z-index: 2;
-        max-width: none;
-        padding: 34px 0 10px;
+        padding: 0;
       }
 
       .hero-picture {
-  order: 2;
-  position: relative;
-  inset: auto;
-  z-index: 0;
-  margin-top: -8px;
-}
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
 
-.hero-bg-img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 5;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-}
+      .hero-bg-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+      }
+
+      .hero::after {
+        display: block;
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 247, 232, 0.00) 0%,
+          rgba(255, 247, 232, 0.06) 34%,
+          rgba(255, 247, 232, 0.76) 58%,
+          rgba(255, 247, 232, 0.98) 100%
+        );
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .hero .container {
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-content {
+        max-width: none;
+        padding: 0 0 104px;
+      }
 
       .eyebrow {
-        margin-bottom: 16px;
+        font-size: 13px;
+        padding: 7px 13px;
+        margin-bottom: 12px;
       }
 
       .hero-title {
-        font-size: 36px;
-        line-height: 1.18;
+        font-size: 34px;
+        line-height: 1.16;
+        letter-spacing: -0.04em;
       }
 
       .hero-sub {
-        font-size: 17px;
-        line-height: 1.75;
-        margin-top: 16px;
+        font-size: 16px;
+        line-height: 1.65;
+        margin-top: 12px;
+        max-width: none;
       }
 
       .hero-actions {
-        margin-top: 22px;
+        margin-top: 16px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
       }
 
       .hero-actions .btn {
         width: 100%;
+        padding: 12px 24px;
+        font-size: 17px;
       }
 
       .hero-tags {
-        margin-top: 18px;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-      }
-
-      .hero-tags span {
-        text-align: center;
+        display: none;
       }
 
       #benefits {
@@ -1112,9 +1121,9 @@
   <main>
     <section class="hero">
       <picture class="hero-picture">
-  <source media="(max-width: 900px)" srcset="images/Hero-mobile.png">
-  <img class="hero-bg-img" src="images/Hero.png" alt="孩子一起看平板，學習選擇好內容的暑假親子營主視覺">
-</picture>
+        <source media="(max-width: 900px)" srcset="images/Hero-mobile.png">
+        <img class="hero-bg-img" src="images/Hero.png" alt="孩子一起看平板，學習選擇好內容的暑假親子營主視覺">
+      </picture>
 
       <div class="container">
         <div class="hero-content">
