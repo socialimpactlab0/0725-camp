@@ -1686,6 +1686,19 @@
       adSourceInput.value = adSource;
     }
 
+    function shouldLogVisit() {
+      const key = 'campVisitLogged:' + adSource + ':' + window.location.pathname;
+      try {
+        if (sessionStorage.getItem(key)) {
+          return false;
+        }
+        sessionStorage.setItem(key, '1');
+        return true;
+      } catch (err) {
+        return true;
+      }
+    }
+
     function setStatus(message, type) {
       formStatus.textContent = message;
       formStatus.className = 'status ' + (type || '');
@@ -1717,6 +1730,19 @@
         }
 
         document.body.appendChild(script);
+      });
+    }
+
+    if (shouldLogVisit()) {
+      jsonpRequest(GAS_WEB_APP_URL, {
+        action: 'visit',
+        adSource: adSource,
+        pageUrl: window.location.href,
+        referrer: document.referrer || '',
+        userAgent: navigator.userAgent || '',
+        screenSize: (window.screen ? window.screen.width + 'x' + window.screen.height : '')
+      }).catch(function() {
+        // 進站紀錄失敗不影響報名功能。
       });
     }
 
