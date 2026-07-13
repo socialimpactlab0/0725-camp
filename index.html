@@ -5,8 +5,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>免費親子闖關活動｜小小影片偵探出任務！</title>
-  <meta name="description" content="免費親子闖關活動，小小影片偵探出任務！透過互動問答、偵探任務與集點活動，陪孩子學會分辨好內容。2026/7/25 台南勞工育樂中心二樓第三會議室，限額 50 組親子家庭，公益活動，無商品銷售，家長可全程陪同。" />
+  <title>孩子一直滑短影音？爸媽怎麼陪？｜免費親子闖關活動</title>
+  <meta name="description" content="孩子暑假一直看 YouTube、短影音，爸媽怎麼陪？免費親子闖關活動「小小影片偵探出任務」，透過互動問答、偵探任務與集點活動，陪孩子學會分辨好內容。2026/7/25 台南勞工育樂中心二樓第三會議室，限額 50 組親子家庭，公益活動，無商品銷售，家長可全程陪同。" />
+
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+
+    fbq('init', '770057572700869');
+    fbq('track', 'PageView');
+  </script>
+
+  <noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://www.facebook.com/tr?id=770057572700869&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Meta Pixel Code -->
 
   <style>
     :root {
@@ -934,6 +956,135 @@
       font-size: 14px;
     }
 
+
+    .hero-proof {
+      margin-top: 18px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid #f1dfc4;
+      border-radius: 22px;
+      padding: 16px 18px;
+      box-shadow: var(--shadow-soft);
+      max-width: 610px;
+    }
+
+    .hero-proof-title {
+      margin: 0 0 10px;
+      color: #8a4b00;
+      font-size: 15px;
+      font-weight: 900;
+    }
+
+    .hero-proof-list {
+      display: grid;
+      gap: 7px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      color: #333;
+      font-size: 15.5px;
+      font-weight: 800;
+      line-height: 1.55;
+    }
+
+    .hero-proof-list li::before {
+      content: "✓";
+      color: var(--orange-dark);
+      font-weight: 900;
+      margin-right: 7px;
+    }
+
+    .worry-section {
+      background: #fffaf2;
+      border-top: 1px solid #f2e6d2;
+    }
+
+    .worry-grid {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .worry-card {
+      background: white;
+      border: 1px solid #f1dfc4;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .worry-card h3 {
+      margin: 0 0 10px;
+      font-size: 21px;
+      line-height: 1.35;
+      color: #111;
+      font-weight: 900;
+    }
+
+    .worry-card p {
+      margin: 0;
+      color: #555;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .worry-card strong {
+      color: var(--orange-dark);
+      font-weight: 900;
+    }
+
+    .decision-box {
+      margin-top: 34px;
+      background: linear-gradient(135deg, #fff0d8, #fffaf2);
+      border: 1px solid #f1dfc4;
+      border-radius: 28px;
+      padding: 28px;
+      text-align: center;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .decision-box h3 {
+      margin: 0;
+      font-size: clamp(24px, 3vw, 32px);
+      line-height: 1.35;
+      font-weight: 900;
+      color: #111;
+    }
+
+    .decision-box p {
+      margin: 10px auto 0;
+      max-width: 760px;
+      color: #555;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .signup-push {
+      margin-bottom: 22px;
+      background: #fffaf2;
+      border: 1px solid #f1dfc4;
+      border-radius: 20px;
+      padding: 18px 20px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .signup-push strong {
+      display: block;
+      color: #111;
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .signup-push p {
+      margin: 0;
+      color: #555;
+      font-size: 15.5px;
+      font-weight: 700;
+      line-height: 1.7;
+    }
+
     @media (max-width: 900px) {
       body {
         padding-bottom: 82px;
@@ -1040,6 +1191,28 @@
       .hero-tags {
         display: none;
       }
+
+
+      .hero-proof {
+        margin-top: 12px;
+        padding: 13px 14px;
+        border-radius: 18px;
+      }
+
+      .hero-proof-title {
+        font-size: 14px;
+        margin-bottom: 7px;
+      }
+
+      .hero-proof-list {
+        font-size: 14px;
+        gap: 5px;
+      }
+
+      .worry-grid {
+        grid-template-columns: 1fr;
+      }
+
 
       #benefits {
         padding-top: 54px;
@@ -1210,29 +1383,38 @@
         <div class="hero-content">
           <div class="eyebrow">
             <span class="eyebrow-dot"></span>
-            免費親子闖關活動｜限額 50 組
+            台南免費親子闖關活動｜限額 50 組
           </div>
 
           <h1 class="hero-title">
-            小小影片偵探<br>
-            <span class="orange">出任務！</span>
+            孩子一直滑短影音？<br>
+            <span class="orange">爸媽怎麼陪？</span>
           </h1>
 
           <p class="hero-sub">
-            不是上課，也不是考試。透過 <strong>互動問答、偵探任務與集點活動</strong>，
-            陪孩子一邊玩任務，一邊學會分辨好內容。
+            與其只是禁止，不如陪孩子化身 <strong>小小影片偵探</strong>。
+            透過互動問答、偵探任務與集點活動，一邊玩、一邊學會分辨好內容。
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#signup">立即報名</a>
-            <a class="btn btn-soft" href="#info">查看活動資訊</a>
+            <a class="btn btn-primary" href="#signup">立即免費報名</a>
+            <a class="btn btn-soft" href="#schedule">看活動怎麼玩</a>
           </div>
 
           <div class="hero-tags">
-            <span>免費參加</span>
+            <span>不是上課</span>
             <span>親子同行</span>
             <span>完成任務拿好禮</span>
-            <span>額滿即止</span>
+            <span>無商品銷售</span>
+          </div>
+
+          <div class="hero-proof">
+            <p class="hero-proof-title">適合正在煩惱孩子看影片、滑短影音的家長</p>
+            <ul class="hero-proof-list">
+              <li>7/25（六）08:30–12:00，半天完成，不佔整天</li>
+              <li>家長全程陪同，孩子在任務中學會選好內容</li>
+              <li>公益活動，免費參加，完成任務拿好禮</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -1241,17 +1423,18 @@
     <section id="benefits">
       <div class="container">
         <div class="section-center">
-          <span class="section-label">三大活動亮點</span>
-          <h2 class="section-title">孩子玩任務，爸媽更安心</h2>
+          <span class="section-label">家長為什麼會想帶孩子來</span>
+          <h2 class="section-title">不是少看影片而已，而是學會怎麼選好內容</h2>
           <p class="section-lead">
-            這不是單向上課，而是透過闖關、問答與親子討論，讓孩子在活動中學會選好內容。
+            暑假孩子接觸 YouTube、短影音的時間變多，真正需要的不是一直禁止，
+            而是陪孩子建立「看得懂、選得好、懂得停」的能力。
           </p>
         </div>
 
         <div class="benefit-grid">
           <div class="benefit-card benefit-yellow">
             <div class="benefit-icon">🔍</div>
-            <h3>增強辨識能力</h3>
+            <h3>把擔心變成能力</h3>
             <ul>
               <li>學會分辨正向與不適合內容</li>
               <li>看見影片背後的目的</li>
@@ -1261,22 +1444,59 @@
 
           <div class="benefit-card benefit-green">
             <div class="benefit-icon">💚</div>
-            <h3>促進親子對話</h3>
+            <h3>用任務代替說教</h3>
             <ul>
-              <li>親子一起討論影片內容</li>
-              <li>透過任務了解孩子想法</li>
-              <li>建立更好的陪伴方式</li>
+              <li>不是講座，不是考試</li>
+              <li>親子一起找線索、完成任務</li>
+              <li>讓孩子更願意聽、願意說</li>
             </ul>
           </div>
 
           <div class="benefit-card benefit-orange">
             <div class="benefit-icon">💡</div>
-            <h3>激發創意思考</h3>
+            <h3>帶走實際收穫</h3>
             <ul>
-              <li>鼓勵孩子勇敢表達</li>
-              <li>透過問答練習思考</li>
-              <li>從活動中建立自信</li>
+              <li>練習觀察、思考與判斷</li>
+              <li>完成任務拿好禮</li>
+              <li>回家後更容易親子討論</li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="worry-section">
+      <div class="container">
+        <div class="section-center">
+          <span class="section-label">家長最在意的事</span>
+          <h2 class="section-title">這場活動，先幫你把疑慮說清楚</h2>
+          <p class="section-lead">
+            家長不是不想讓孩子參加活動，而是需要知道：孩子會不會有興趣、現場是否安心、半天時間是否值得。
+          </p>
+        </div>
+
+        <div class="worry-grid">
+          <div class="worry-card">
+            <h3>孩子會不會覺得無聊？</h3>
+            <p><strong>不是坐著聽講。</strong>孩子會化身小小影片偵探，透過問答、找線索、闖關任務來參與。</p>
+          </div>
+
+          <div class="worry-card">
+            <h3>會不會有推銷或壓力？</h3>
+            <p><strong>公益親子活動，無商品銷售。</strong>家長可全程陪同，活動內容以親子互動與好內容選擇為主。</p>
+          </div>
+
+          <div class="worry-card">
+            <h3>週六早上值得去嗎？</h3>
+            <p><strong>半天活動，孩子有任務、有禮物、有抽獎。</strong>家長也能帶走一個更好的陪伴方法。</p>
+          </div>
+        </div>
+
+        <div class="decision-box">
+          <h3>如果孩子不是不看影片，而是不知道怎麼選，這場活動就值得來。</h3>
+          <p>我們希望孩子不是被動滑影片，而是開始學會觀察、思考、判斷，知道什麼內容值得看、什麼內容要小心。</p>
+          <div style="margin-top:22px;">
+            <a class="btn btn-primary" href="#signup">立即免費報名</a>
           </div>
         </div>
       </div>
@@ -1307,9 +1527,9 @@
 
         <div>
           <span class="section-label">活動資訊</span>
-          <h2 class="section-title">免費參加，限額 50 組</h2>
+          <h2 class="section-title">7/25 週六上午，帶孩子完成一場影片偵探任務</h2>
           <p class="section-lead" style="margin-left:0;">
-            公益親子活動，無商品銷售，家長可全程陪同。名額有限，額滿即止。
+            公益親子活動，免費參加、無商品銷售、家長可全程陪同。名額有限，額滿即止。
           </p>
 
           <div class="info-list" style="margin-top:22px;">
@@ -1346,9 +1566,10 @@
       <div class="container">
         <div class="section-center">
           <span class="section-label">活動流程</span>
-          <h2 class="section-title">半天時間，輕鬆又充實</h2>
+          <h2 class="section-title">半天時間，讓孩子真的參與進來</h2>
           <p class="section-lead">
-            互動問答、影片偵探任務、集點兌獎與抽獎活動，讓孩子有參與感，也讓家長更了解陪伴方式。
+            活動不是單向聽講，而是讓孩子透過互動問答、影片偵探任務、集點兌獎與抽獎活動，
+            在參與中學會分辨好內容。
           </p>
         </div>
 
@@ -1392,10 +1613,10 @@
       <div class="container">
         <div class="review-box">
           <span class="section-label">過往活動回顧</span>
-          <h2 class="section-title">延續親子活動的溫度</h2>
+          <h2 class="section-title">不是第一次辦，讓家長更放心</h2>
           <p class="section-lead" style="margin-left:0;">
             過去我們曾舉辦親子著色畫活動，累積了孩子安心參與、家長共同陪伴的經驗。
-            這次升級成更符合現在孩子需要的媒體素養夏令營，不再是著色比賽。
+            這次延續過往活動經驗，升級成更符合孩子現況的親子闖關活動，讓孩子在互動中學會選擇好內容。
           </p>
 
           <div class="video-wrap">
@@ -1488,7 +1709,7 @@
 
             <p class="section-lead" style="margin-left:0; margin-top:18px;">
               本活動由臺灣自媒體應用科技學會與乾淨校園推廣團隊共同主辦，
-              陪孩子在 AI 與短影音時代學會選擇正向、有教育意義的好內容。
+              目標是陪孩子在 AI、YouTube 與短影音時代，學會選擇正向、有教育意義的好內容。
             </p>
 
             <div style="margin-top:22px;">
@@ -1553,9 +1774,9 @@
       <div class="speech s4">額滿就截止！</div>
 
       <div class="container">
-        <h2 class="cta-title">免費親子闖關活動，名額僅 50 組</h2>
+        <h2 class="cta-title">孩子不是不能看影片，而是要學會怎麼選</h2>
         <p class="cta-sub">
-          小小影片偵探出任務！孩子完成任務拿好禮，家長陪孩子學會選好內容。
+          7/25 週六上午，帶孩子一起完成小小影片偵探任務。免費參加，限額 50 組，額滿即止。
         </p>
 
         <div style="margin-top:28px;">
@@ -1569,8 +1790,8 @@
         <div class="form-note">
           <h2>立即報名</h2>
           <p>
-            請確認當天可參加後再送出報名。報名成功後，主辦單位將於活動前再次提醒。
-            本活動為免費公益親子活動，無商品銷售，家長可全程陪同。
+            如果你也希望孩子不只是少看影片，而是學會怎麼選好內容，
+            歡迎帶孩子一起參加這場半天的親子任務活動。
           </p>
 
           <div class="signup-tags">
@@ -1591,8 +1812,12 @@
 
         <form class="form-box" id="signupForm">
           <input type="hidden" id="adSource" name="adSource" value="">
+          <div class="signup-push">
+            <strong>名額確認後，活動前會再通知。</strong>
+            <p>本活動免費參加、無商品銷售、家長可全程陪同。表單約 1 分鐘完成，請確認 7/25（六）08:30–12:00 可親子同行後再送出。</p>
+          </div>
           <h2 class="form-box-title">填寫報名資料</h2>
-          <p class="form-box-subtitle">填寫約 1 分鐘完成。名額確認後，主辦單位將於活動前再以電話或訊息提醒。</p>
+          <p class="form-box-subtitle">主要適合國小三、四年級親子家庭；其他年級也可先登記，主辦單位將視名額安排。</p>
 
           <div class="form-grid">
             <div class="field">
@@ -1770,6 +1995,14 @@
         });
 
         if (response.ok) {
+          if (typeof fbq === 'function') {
+            fbq('track', 'CompleteRegistration', {
+              content_name: '0725親子闖關活動',
+              ad_source: adSource,
+              status: 'success'
+            });
+          }
+
           setStatus(response.message || '報名成功！我們已收到您的資料。', 'ok');
           form.reset();
         } else {
